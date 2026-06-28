@@ -1,0 +1,38 @@
+@import "react-phone-number-input/style.css";
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --color-global-blue-900: #1751d0;
+  --color-global-blue-1000: #113b98;
+  --color-global-neutral-grey-400: #ececed;
+  --color-global-neutral-grey-500: #e6e6e6;
+  --color-global-neutral-grey-1000: #4f4d55;
+  --color-global-neutral-grey-1300: #0a090b;
+  --color-global-cool-grey-200: #eff0f2;
+  --color-colour: #ffffff;
+  --color-auth-ink: #0b2036;
+  --color-auth-muted: #7d8793;
+  --color-auth-border: #aeb8c4;
+  --color-auth-accent: #ff5a1f;
+  --color-auth-link: #0574b8;
+  --color-auth-cream: #fbf5eb;
+  --color-auth-divider: #b8c1cc;
+  --color-auth-success: #078b12;
+  --color-auth-success-soft: #cfefcf;
+
+  --background: var(--color-colour);
+  --foreground: var(--color-global-neutral-grey-1300);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-arabic);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-arabic), Arial, sans-serif;
+}

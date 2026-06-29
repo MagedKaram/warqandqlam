@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
+import { Amiri, Cairo } from "next/font/google";
 import { SiteShell } from "@/components/layout/SiteShell";
 import "./globals.css";
 
 const cairo = Cairo({
-  variable: "--font-arabic",
+  variable: "--font-body",
   subsets: ["arabic", "latin"],
+  display: "swap",
+});
+
+const amiri = Amiri({
+  variable: "--font-heading",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -20,7 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} h-full antialiased`}>
+    <html
+      lang="ar"
+      dir="rtl"
+      className={`${amiri.variable} ${cairo.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         <SiteShell>{children}</SiteShell>
       </body>

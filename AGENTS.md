@@ -21,7 +21,9 @@ deprecation notices.
 
 - The product is Arabic-first.
 - Keep `<html lang="ar" dir="rtl">`.
-- Use the configured Arabic font from `next/font`.
+- Headings = Amiri (`font-heading`), body = Cairo (`font-body`).
+- Never hardcode `font-family`; use the configured `next/font` variables and
+  Tailwind font tokens.
 - Build layouts and interaction flows with RTL direction as the default.
 
 ## Frontend Only

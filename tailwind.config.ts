@@ -30,7 +30,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-arabic)", "Arial", "sans-serif"],
+        heading: ["var(--font-heading)", "Arial", "sans-serif"],
+        body: ["var(--font-body)", "Arial", "sans-serif"],
+        sans: ["var(--font-body)", "Arial", "sans-serif"],
       },
       fontSize: {
         "figma-13": ["13px", { lineHeight: "16px", letterSpacing: "0" }],

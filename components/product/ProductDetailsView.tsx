@@ -145,7 +145,7 @@ function ProductPurchasePanel({
 }) {
   return (
     <section className="w-full text-right lg:w-[538px] lg:shrink-0" dir="rtl">
-      <div className="mb-4 flex justify-end">
+      <div className="mb-4 flex justify-start">
         <span className="inline-flex items-center gap-1 rounded-full bg-home-promo px-4 py-2 text-sm font-bold text-auth-accent">
           <PiStarFill aria-hidden />
           {product.badge}
@@ -162,10 +162,7 @@ function ProductPurchasePanel({
         {product.subtitle}
       </p>
 
-      <div
-        className="mt-4 flex flex-wrap items-center justify-end gap-3 text-base font-semibold text-auth-ink"
-        dir="ltr"
-      >
+      <div className="mt-4 flex flex-wrap items-center justify-start gap-3 text-base font-semibold text-auth-ink">
         <span className="rtl-isolate">{product.soldText}</span>
         <span className="text-auth-muted">|</span>
         <span className="rtl-isolate">({product.reviewCount} تقييم)</span>
@@ -307,7 +304,7 @@ function ProductInfoTabs({
 
   return (
     <section>
-      <div className="flex justify-end gap-16 border-b border-auth-border">
+      <div className="flex justify-start gap-16 border-b border-auth-border">
         {tabs.map((tab) => (
           <button
             className={`relative pb-5 font-heading text-3xl font-bold transition focus:outline-none focus:ring-2 focus:ring-auth-accent ${
@@ -365,7 +362,7 @@ function ProductInfoTabs({
         ) : null}
 
         {activeTab === "reviews" ? (
-          <div className="flex justify-end">
+          <div className="flex justify-start">
             {product.reviews.map((review) => (
               <article className="max-w-xl text-right" key={review.id}>
                 <RatingStars rating={review.rating} size="text-xl" />

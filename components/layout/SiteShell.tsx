@@ -2,7 +2,9 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { RoutePreloader } from "@/components/layout/RoutePreloader";
 
 const authRoutes = new Set([
   "/signup",
@@ -18,8 +20,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <>
+      <RoutePreloader />
       {showHeader ? <Header /> : null}
       {children}
+      {showHeader ? <Footer /> : null}
     </>
   );
 }

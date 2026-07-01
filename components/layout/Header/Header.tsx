@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   PiHeart,
+  PiHeartFill,
   PiList,
   PiMagnifyingGlass,
   PiShoppingCartSimple,
@@ -21,12 +22,13 @@ type ActionItem = {
   label: string;
   href: string;
   icon: typeof PiUser;
+  activeIcon?: typeof PiUser;
   drawerOnly?: boolean;
 };
 
 const navItems: NavItem[] = [
   { label: "الرئيسية", href: "/" },
-  { label: "الاقسام", href: "/categories" },
+  { label: "الأقسام", href: "/categories" },
   { label: "الطباعة", href: "/printing" },
   { label: "المنتجات", href: "/products" },
   { label: "تواصل معنا", href: "/contact" },
@@ -35,7 +37,13 @@ const navItems: NavItem[] = [
 const actionItems: ActionItem[] = [
   { label: "الحساب", href: "/login", icon: PiUser, drawerOnly: true },
   { label: "السلة", href: "/cart", icon: PiShoppingCartSimple },
-  { label: "المفضلة", href: "/wishlist", icon: PiHeart, drawerOnly: true },
+  {
+    label: "المفضلة",
+    href: "/wishlist",
+    icon: PiHeart,
+    activeIcon: PiHeartFill,
+    drawerOnly: true,
+  },
 ];
 
 function isActivePath(pathname: string, href: string) {
@@ -70,11 +78,18 @@ function HeaderNavLink({
   );
 }
 
-function ActionLink({ href, icon: Icon, label }: ActionItem) {
+function ActionLink({ href, icon, activeIcon, label }: ActionItem) {
+  const pathname = usePathname();
+  const active = isActivePath(pathname, href);
+  const Icon = active && activeIcon ? activeIcon : icon;
+
   return (
     <Link
+      aria-current={active ? "page" : undefined}
       aria-label={label}
-      className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link"
+      className={`flex h-14 w-14 items-center justify-center rounded-md transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link ${
+        active ? "bg-home-promo text-auth-accent" : "text-auth-ink"
+      }`}
       href={href}
       prefetch={false}
     >
@@ -116,7 +131,7 @@ export function Header() {
           href="/products"
           prefetch={false}
         >
-          اطلب الان
+          اطلب الآن
         </Link>
       </div>
 
@@ -149,18 +164,14 @@ export function Header() {
             </div>
 
             <div className="flex items-center gap-3 lg:hidden">
-              <ActionLink
-                href="/cart"
-                icon={PiShoppingCartSimple}
-                label="السلة"
-              />
+              <ActionLink href="/cart" icon={PiShoppingCartSimple} label="السلة" />
             </div>
 
             <div className="relative" dir="rtl">
               <button
                 aria-expanded={searchOpen}
                 aria-label="بحث"
-                className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link"
+                className="flex h-14 w-14 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link"
                 onClick={() => setSearchOpen((current) => !current)}
                 type="button"
               >

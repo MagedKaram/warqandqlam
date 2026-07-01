@@ -20,6 +20,7 @@ This project is an Arabic-first, RTL, frontend-only storefront for Warqa w Qalam
 | `/` | `app/page.tsx` | UI prototype | Home page composed from home section components. |
 | `/categories` | `app/categories/page.tsx` | UI prototype | Category listing using mock category data. |
 | `/products` | `app/products/page.tsx` | UI prototype | Product listing, promo banner, filter drawer, and pagination using mock data. |
+| `/products/[slug]` | `app/products/[slug]/page.tsx` | UI prototype | Product details page with gallery, purchase controls, tabs, related products, and delivery promo using mock data. |
 | `/wishlist` | `app/wishlist/page.tsx` and `app/wishlist/WishlistContent.tsx` | UI prototype | Local wishlist state only; no persistence yet. |
 | `/signup` | `app/signup/page.tsx` | UI prototype | Uses shared auth layout and signup form. |
 | `/login` | `app/login/page.tsx` | UI prototype | Visual auth page only. |
@@ -54,6 +55,7 @@ Header links may point to future routes such as `/printing`, `/contact`, `/about
 | `public/assets/images/home/company/` | Company/partner logo strip images. |
 | `public/assets/images/home/products/` | Product images originally used in home best sellers. |
 | `public/assets/images/products/` | Products page listing images and promo banner asset. |
+| `public/assets/images/productdetails/` | Product detail gallery, related product images, and delivery promo artwork. |
 
 Use `next/image` for local assets. Prefer existing assets before adding new ones.
 

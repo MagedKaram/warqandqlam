@@ -20,6 +20,8 @@
   --color-auth-divider: #b8c1cc;
   --color-auth-success: #078b12;
   --color-auth-success-soft: #cfefcf;
+  --color-home-promo: #fff0e9;
+  --color-home-promo-badge: #ffc7a8;
 
   --background: var(--color-colour);
   --foreground: var(--color-global-neutral-grey-1300);
@@ -44,4 +46,67 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading), Arial, sans-serif;
+}
+
+.rtl-text {
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+
+.rtl-isolate {
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+
+.ltr-isolate {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.price-text {
+  font-family: var(--font-heading), Arial, sans-serif;
+}
+
+.route-loader-logo {
+  animation: route-loader-pulse 1.1s ease-in-out infinite;
+}
+
+.route-loader-logo::after {
+  animation: route-loader-sweep 1.35s ease-in-out infinite;
+  background: linear-gradient(
+    100deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.2) 38%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0.2) 62%,
+    transparent 85%
+  );
+  content: "";
+  inset: -30%;
+  position: absolute;
+  transform: translateX(120%) rotate(12deg);
+}
+
+@keyframes route-loader-pulse {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes route-loader-sweep {
+  0% {
+    transform: translateX(120%) rotate(12deg);
+  }
+
+  55%,
+  100% {
+    transform: translateX(-120%) rotate(12deg);
+  }
 }

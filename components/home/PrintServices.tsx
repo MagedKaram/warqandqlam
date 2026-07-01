@@ -57,13 +57,14 @@ function PrintServiceCard({ title, description, image, alt }: PrintService) {
 
 export function PrintServices() {
   return (
-    <section className="bg-white px-6 pb-20 md:px-10">
+    <section className="bg-white px-6 pb-20 md:px-10 mt-12">
       <div className="mx-auto max-w-7xl text-center">
         <h2 className="text-4xl font-bold text-auth-ink md:text-5xl">
           خدمات الطباعة الرقمية
         </h2>
         <p className="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-8 text-auth-muted">
-          اطبع مستنداتك بسهولة تامة من خلال ثلاث خطوات بسيطة، مع خيارات متعددة للجودة والتغليف.
+          اطبع مستنداتك بسهولة تامة من خلال ثلاث خطوات بسيطة، مع خيارات متعددة
+          للجودة والتغليف.
         </p>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
@@ -73,7 +74,10 @@ export function PrintServices() {
         </div>
 
         <div className="mt-10">
-          <SectionButton href="/printing" icon={<PiPrinter className="text-2xl" />}>
+          <SectionButton
+            href="/printing"
+            icon={<PiPrinter className="text-2xl" />}
+          >
             ابدأ الطباعة الآن
           </SectionButton>
         </div>

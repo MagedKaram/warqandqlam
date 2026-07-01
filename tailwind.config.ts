@@ -28,6 +28,10 @@ const config: Config = {
           success: "var(--color-auth-success)",
           "success-soft": "var(--color-auth-success-soft)",
         },
+        home: {
+          promo: "var(--color-home-promo)",
+          "promo-badge": "var(--color-home-promo-badge)",
+        },
       },
       fontFamily: {
         heading: ["var(--font-heading)", "Arial", "sans-serif"],

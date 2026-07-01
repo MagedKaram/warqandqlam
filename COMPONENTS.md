@@ -17,6 +17,7 @@ This file documents the current UI components so new pages reuse existing buildi
 | --- | --- | --- | --- | --- |
 | `ProductCard` | `components/product/ProductCard.tsx` | Shared product tile with image, new badge, wishlist action, title, and price. | `BestSellers`, `WishlistContent`, `/products` | Use for every product grid/carousel before creating another card. Add props here if product tiles need a controlled visual variant. |
 | `ProductsFilterControls` | `components/product/ProductsFilterControls.tsx` | Products-page sort control and RTL filter drawer. | `/products` | Page-specific for now. If category pages need filters, promote this to a generic catalog filter component. |
+| `ProductDetailsView` | `components/product/ProductDetailsView.tsx` | Product detail composition: gallery, purchase controls, service strip, tabs, related products, and delivery promo. | `/products/[slug]` | Detail-page shell. Keep the route as a Server Component and put browser interactions here. |
 | `SchoolPromo` | `components/home/SchoolPromo.tsx` | Reusable school-supplies promo banner with discount pill, title, CTA, and image. | Home page, `/products` | Shared by home and products. Use props for `headingLevel`, `ctaHref`, image source, and image dimensions instead of rebuilding the banner. |
 | `SectionButton` | `components/home/SectionButton.tsx` | Orange CTA link with optional icon. | `PrintServices`, `SchoolPromo` | Use for section CTA links that match the orange button style. |
 
@@ -60,6 +61,7 @@ This file documents the current UI components so new pages reuse existing buildi
 - The products page originally duplicated the school promo banner. It now reuses `SchoolPromo` with products-page props.
 - The products page still has inline pagination. Keep it inline while it is only used once; extract to a shared `Pagination` component if categories/search pages need the same control.
 - `ProductsFilterControls` is products-page-specific today. Promote it only when another catalog route needs the same filter drawer.
+- Product details uses a page-specific related product card inside `ProductDetailsView` because those cards include rating and add-to-cart controls that the listing `ProductCard` does not provide.
 - The header/footer are global through `SiteShell`; pages should not recreate them.
 
 ## Before Creating A New Component

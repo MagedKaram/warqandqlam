@@ -145,110 +145,121 @@ function ProductPurchasePanel({
 }) {
   return (
     <section className="w-full text-right lg:w-[538px] lg:shrink-0" dir="rtl">
-      <div className="mb-4 flex justify-start">
-        <span className="inline-flex items-center gap-1 rounded-full bg-home-promo px-4 py-2 text-sm font-bold text-auth-accent">
-          <PiStarFill aria-hidden />
-          {product.badge}
-        </span>
-      </div>
+      <div className="flex flex-col items-end gap-[27px]">
+        <div className="flex flex-col items-end gap-2 self-stretch">
+          <span className="inline-flex items-center gap-1 rounded-full bg-home-promo px-4 py-2 text-sm font-bold text-auth-accent">
+            <PiStarFill aria-hidden />
+            {product.badge}
+          </span>
 
-      <h1 className="rtl-text font-heading text-[32px] font-bold leading-[1.3] text-auth-ink">
-        <span>{product.title} </span>
-        <bdi className="ltr-isolate text-auth-link">
-          {product.brandHighlight}
-        </bdi>
-      </h1>
-      <p className="rtl-text mt-3 font-body text-base font-semibold leading-[1.35] text-auth-muted">
-        {product.subtitle}
-      </p>
+          <div className="flex flex-col items-end gap-2.5 self-stretch">
+            <h1 className="rtl-text self-stretch font-body text-[32px] font-semibold leading-[1.3] text-auth-ink">
+              <span>{product.title} </span>
+              <bdi className="ltr-isolate text-auth-link">
+                {product.brandHighlight}
+              </bdi>
+            </h1>
+            <p className="rtl-text self-stretch font-body text-base font-semibold leading-[1.35] text-auth-muted">
+              {product.subtitle}
+            </p>
 
-      <div className="mt-4 flex flex-wrap items-center justify-start gap-3 text-base font-semibold text-auth-ink">
-        <span className="rtl-isolate">{product.soldText}</span>
-        <span className="text-auth-muted">|</span>
-        <span className="rtl-isolate">({product.reviewCount} تقييم)</span>
-        <span>{product.rating}</span>
-        <RatingStars rating={product.rating} />
-      </div>
+            <div
+              className="flex flex-wrap items-center gap-3 text-base font-semibold text-auth-ink"
+              dir="ltr"
+            >
+              <span className="rtl-isolate">{product.soldText}</span>
+              <span className="text-auth-muted">|</span>
+              <span className="rtl-isolate">
+                ({product.reviewCount} تقييم)
+              </span>
+              <span>{product.rating}</span>
+              <RatingStars rating={product.rating} />
+            </div>
+          </div>
+        </div>
 
-      <div className="mt-8 flex items-center justify-end gap-8" dir="ltr">
-        <span className="price-text text-xl font-semibold text-auth-muted line-through">
-          {product.oldPrice} جنيه
-        </span>
-        <span className="price-text text-2xl font-bold text-auth-accent">
-          {product.price} {product.currency}
-        </span>
-      </div>
+        <div className="flex items-center gap-8" dir="ltr">
+          <span className="price-text text-xl font-semibold text-auth-muted line-through">
+            {product.oldPrice} جنيه
+          </span>
+          <span className="price-text text-2xl font-bold text-auth-accent">
+            {product.price} {product.currency}
+          </span>
+        </div>
 
-      <div
-        className="mt-12 flex flex-col gap-8 xl:flex-row xl:items-center xl:justify-between"
-        dir="ltr"
-      >
-        <div className="flex items-center justify-end gap-3">
-          <div className="flex items-center gap-3" dir="ltr">
-            {product.colors.map((color) => (
+        <div
+          className="flex flex-col items-end gap-8 xl:flex-row xl:items-center xl:justify-end xl:gap-[84px]"
+          dir="ltr"
+        >
+          <div className="flex items-center justify-end gap-3">
+            <div className="flex items-center gap-3" dir="ltr">
+              {product.colors.map((color) => (
+                <button
+                  aria-label={color.label}
+                  aria-pressed={selectedColor === color.id}
+                  className={`h-9 w-9 rounded-full border-2 transition focus:outline-none focus:ring-2 focus:ring-auth-accent ${
+                    selectedColor === color.id
+                      ? "border-auth-ink"
+                      : "border-transparent"
+                  }`}
+                  key={color.id}
+                  onClick={() => onSelectColor(color.id)}
+                  style={{ backgroundColor: color.value }}
+                  type="button"
+                />
+              ))}
+            </div>
+            <span className="font-body text-lg font-bold text-auth-muted">
+              اللون:
+            </span>
+          </div>
+
+          <div className="flex items-center justify-end gap-3">
+            <div
+              className="flex h-12 w-36 items-center justify-between rounded-md border border-auth-border bg-white px-3"
+              dir="ltr"
+            >
               <button
-                aria-label={color.label}
-                aria-pressed={selectedColor === color.id}
-                className={`h-9 w-9 rounded-full border-2 transition focus:outline-none focus:ring-2 focus:ring-auth-accent ${
-                  selectedColor === color.id
-                    ? "border-auth-ink"
-                    : "border-transparent"
-                }`}
-                key={color.id}
-                onClick={() => onSelectColor(color.id)}
-                style={{ backgroundColor: color.value }}
+                aria-label="زيادة الكمية"
+                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-ink transition hover:bg-cool-200 focus:outline-none focus:ring-2 focus:ring-auth-accent"
+                onClick={onIncrease}
                 type="button"
-              />
-            ))}
+              >
+                <PiPlus aria-hidden className="text-xl" />
+              </button>
+              <span className="text-xl font-bold text-auth-ink">
+                {quantity}
+              </span>
+              <button
+                aria-label="تقليل الكمية"
+                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-ink transition hover:bg-cool-200 focus:outline-none focus:ring-2 focus:ring-auth-accent"
+                onClick={onDecrease}
+                type="button"
+              >
+                <PiMinus aria-hidden className="text-xl" />
+              </button>
+            </div>
+            <span className="font-body text-lg font-bold text-auth-muted">
+              الكمية:
+            </span>
           </div>
-          <span className="font-body text-lg font-bold text-auth-muted">
-            اللون:
-          </span>
         </div>
 
-        <div className="flex items-center justify-end gap-3">
-          <div
-            className="flex h-12 w-36 items-center justify-between rounded-md border border-auth-border bg-white px-3"
-            dir="ltr"
+        <div className="grid grid-cols-2 gap-8 self-stretch" dir="ltr">
+          <button
+            className="h-12 rounded-md border border-auth-ink bg-white px-6 text-lg font-bold text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
+            type="button"
           >
-            <button
-              aria-label="تقليل الكمية"
-              className="flex h-9 w-9 items-center justify-center rounded-md text-auth-ink transition hover:bg-cool-200 focus:outline-none focus:ring-2 focus:ring-auth-accent"
-              onClick={onDecrease}
-              type="button"
-            >
-              <PiMinus aria-hidden className="text-xl" />
-            </button>
-            <span className="text-xl font-bold text-auth-ink">{quantity}</span>
-            <button
-              aria-label="زيادة الكمية"
-              className="flex h-9 w-9 items-center justify-center rounded-md text-auth-ink transition hover:bg-cool-200 focus:outline-none focus:ring-2 focus:ring-auth-accent"
-              onClick={onIncrease}
-              type="button"
-            >
-              <PiPlus aria-hidden className="text-xl" />
-            </button>
-          </div>
-          <span className="font-body text-lg font-bold text-auth-muted">
-            الكمية:
-          </span>
+            اشتري الآن
+          </button>
+          <button
+            className="inline-flex h-12 items-center justify-center gap-3 rounded-md bg-auth-accent px-6 text-lg font-bold text-white transition hover:bg-auth-accent/90 focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
+            type="button"
+          >
+            أضف للسلة
+            <PiShoppingCartSimple aria-hidden className="text-2xl" />
+          </button>
         </div>
-      </div>
-
-      <div className="mt-8 grid gap-6 sm:grid-cols-2" dir="ltr">
-        <button
-          className="h-14 rounded-md border border-auth-ink bg-white px-6 text-lg font-bold text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
-          type="button"
-        >
-          اشتري الآن
-        </button>
-        <button
-          className="inline-flex h-14 items-center justify-center gap-3 rounded-md bg-auth-accent px-6 text-lg font-bold text-white transition hover:bg-auth-accent/90 focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
-          type="button"
-        >
-          أضف للسلة
-          <PiShoppingCartSimple aria-hidden className="text-2xl" />
-        </button>
       </div>
     </section>
   );
@@ -528,7 +539,7 @@ export function ProductDetailsView({ product }: ProductDetailsViewProps) {
       <section className="px-6 pb-16 pt-10 md:px-10">
         <div className="mx-auto max-w-7xl">
           <div
-            className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between"
+            className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-end"
             dir="ltr"
           >
             <ProductPurchasePanel

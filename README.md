@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Warqa w Qalam Frontend
 
-## Getting Started
+Arabic-first RTL storefront prototype built with Next.js 16 App Router, React 19, TypeScript strict mode, and Tailwind CSS v4.
 
-First, run the development server:
+## Quick Start
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```powershell
+npm.cmd run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Docs
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `AGENTS.md` - stack rules, Arabic/RTL requirements, frontend-only status, and Figma workflow.
+- `PROJECT_MAP.md` - routes, source layout, data sources, assets, and global shell map.
+- `COMPONENTS.md` - component inventory and reuse guidance.
+- `UPDATE_WORKFLOW.md` - required checklist for future feature updates and commits.
+- `BACKEND_INTEGRATION.md` - planned backend integration path and API contract notes.
 
-## Learn More
+## Commands
 
-To learn more about Next.js, take a look at the following resources:
+```powershell
+npm.cmd run lint
+npm.cmd run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Current Status
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The app is UI-only. Use mock data from `lib/mock-data.ts` until backend endpoints are finalized.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Keep `<html lang="ar" dir="rtl">`, use configured font tokens, and check existing components before creating new ones.

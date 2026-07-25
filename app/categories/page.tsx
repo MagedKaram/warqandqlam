@@ -13,7 +13,7 @@ export default function CategoriesPage() {
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {categoryListItems.map((category) => (
             <Link
-              className="group flex min-h-52 flex-col items-center justify-center rounded-lg border border-auth-border/45 bg-white px-6 py-6 text-center transition hover:-translate-y-1 hover:border-auth-accent/50 hover:shadow-[0_18px_42px_rgba(11,32,54,0.10)] focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
+              className="group flex min-h-52 flex-col items-center justify-center rounded-lg border border-auth-border/45 bg-white px-6 py-6 text-center transition hover:-translate-y-1 hover:border-auth-accent/50 hover:shadow-[0_18px_42px_rgba(11,32,54,0.10)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2"
               href={`/categories/${category.slug}`}
               key={category.id}
               prefetch={false}

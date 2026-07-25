@@ -51,7 +51,7 @@ export function BestSellers() {
           <div className="mt-0 flex items-center gap-7 lg:mt-12">
             <button
               aria-label="المنتجات التالية"
-              className="flex h-8 w-8 items-center justify-center text-auth-muted transition hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent"
+              className="flex h-8 w-8 items-center justify-center text-auth-muted transition hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
               onClick={() => scrollByCard("next")}
               type="button"
             >
@@ -59,7 +59,7 @@ export function BestSellers() {
             </button>
             <button
               aria-label="المنتجات السابقة"
-              className="flex h-8 w-8 items-center justify-center text-auth-muted transition hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent"
+              className="flex h-8 w-8 items-center justify-center text-auth-muted transition hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
               onClick={() => scrollByCard("previous")}
               type="button"
             >
@@ -83,16 +83,18 @@ export function BestSellers() {
             dir="rtl"
             ref={carouselRef}
           >
-            {bestSellerProducts.map((product) => (
+            {bestSellerProducts.map((product, index) => (
               <div
                 className="min-w-[72%] snap-start sm:min-w-[43%] lg:min-w-[calc((100%_-_72px)/4)]"
                 data-product-card
                 key={product.id}
               >
                 <ProductCard
-                  {...product}
+                  imagePriority={index === 0}
                   isWishlisted={wishlistedIds.has(product.id)}
                   onToggleWishlist={() => toggleWishlist(product.id)}
+                  product={product}
+                  variant="catalog"
                 />
               </div>
             ))}

@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { CartProvider } from "@/components/cart/CartProvider";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { RoutePreloader } from "@/components/layout/RoutePreloader";
@@ -19,11 +20,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const showHeader = !authRoutes.has(pathname);
 
   return (
-    <>
+    <CartProvider>
       <RoutePreloader />
       {showHeader ? <Header /> : null}
       {children}
       {showHeader ? <Footer /> : null}
-    </>
+    </CartProvider>
   );
 }

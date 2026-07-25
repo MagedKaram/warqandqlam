@@ -1,0 +1,105 @@
+- generic [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f9e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f9e6]:
+      - button "فتح القائمة" [ref=f9e62]
+      - generic [ref=f9e13]:
+        - button "بحث" [ref=f9e15]
+        - link "السلة، 1 عنصر" [ref=f9e66] [cursor=pointer]:
+          - /url: /cart
+          - generic [ref=f9e69]: "1"
+  - main [ref=f9e70]:
+    - generic [ref=f9e72]:
+      - region [ref=f9e170]:
+        - heading "طريقة الدفع" [level=1] [ref=f9e171]
+        - 'radio "طريقة الدفع المحددة: فودافون كاش" [checked] [ref=f9e172]':
+          - generic [ref=f9e175]: فودافون كاش
+        - generic [ref=f9e177]:
+          - generic [ref=f9e178]:
+            - term [ref=f9e179]: "رقم فودافون كاش:"
+            - definition [ref=f9e180]: "010535634366"
+          - generic [ref=f9e181]:
+            - term [ref=f9e182]: "الاسم:"
+            - definition [ref=f9e183]: ورقة وقلم للمستلزمات المكتبية
+        - generic [ref=f9e184]:
+          - paragraph [ref=f9e185]: "خطوات الدفع:"
+          - list [ref=f9e186]:
+            - listitem [ref=f9e187]:
+              - generic [ref=f9e188]: 1-
+              - text: حول المبلغ إلي الرقم اعلاه
+            - listitem [ref=f9e189]:
+              - generic [ref=f9e190]: 2-
+              - text: احفظ صورة التحويل
+            - listitem [ref=f9e191]:
+              - generic [ref=f9e192]: 3-
+              - text: ارفع صورة التحويل لاتمام الطلب
+        - generic [ref=f9e194] [cursor=pointer]:
+          - button "اضغط للتحميل أو اسحب وأسقط PNG less than 1MB" [ref=f9e195]
+          - paragraph [ref=f9e198]: اضغط للتحميل أو اسحب وأسقط
+          - generic [ref=f9e199]: PNG less than 1MB
+        - generic [ref=f9e200]:
+          - generic [ref=f9e201]:
+            - generic [ref=f9e202]: اسم المحول
+            - textbox "اسم المحول" [ref=f9e203]:
+              - /placeholder: ادخل اسم المحول
+          - generic [ref=f9e204]:
+            - generic [ref=f9e205]: آخر 4 أرقام من رقم الهاتف
+            - textbox "آخر 4 أرقام من رقم الهاتف" [ref=f9e206]:
+              - /placeholder: 8***
+      - complementary [ref=f9e133]:
+        - heading "ملخص الطلب" [level=2] [ref=f9e134]
+        - article [ref=f9e136]:
+          - generic [ref=f9e137]: "2"
+          - generic [ref=f9e139]:
+            - paragraph [ref=f9e140]: قلم رصاص ماركة دومز الاحترافي للطلاب والمهندسين مع عنوان عربي طويل لاختبار الالتفاف الآمن داخل شاشة الهاتف
+            - generic [ref=f9e141]: 170 LE
+        - generic [ref=f9e143]:
+          - generic [ref=f9e144]:
+            - generic [ref=f9e147]: كود الخصم
+            - textbox "كود الخصم" [ref=f9e148]:
+              - /placeholder: هل تمتلك كوبون خصم؟
+            - button "تفعيل" [ref=f9e149]
+          - paragraph [ref=f9e150]
+        - generic [ref=f9e151]:
+          - generic [ref=f9e152]:
+            - term [ref=f9e153]: مجموع المنتجات
+            - definition [ref=f9e154]: 170 LE
+          - generic [ref=f9e155]:
+            - term [ref=f9e156]: المجموع الفرعي
+            - definition [ref=f9e157]: 170 LE
+          - generic [ref=f9e158]:
+            - term [ref=f9e159]: الشحن
+            - definition [ref=f9e160]: 60 LE
+        - paragraph [ref=f9e161]: أضف منتجات بقيمة 330 LE للحصول على شحن مجاني.
+        - generic [ref=f9e163]:
+          - paragraph [ref=f9e164]: المجموع الكلي
+          - generic [ref=f9e165]: 230 LE
+        - button "ادفع" [active] [ref=f9e207]
+  - contentinfo [ref=f9e32]:
+    - generic [ref=f9e33]:
+      - link "ورقة وقلم" [ref=f9e34] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f9e35]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f9e36]:
+        - link "الرئيسية" [ref=f9e37] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f9e38] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f9e39] [cursor=pointer]:
+          - /url: /#faq
+        - link "من نحن" [ref=f9e40] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f9e41] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f9e42]:
+        - link "Facebook" [ref=f9e43] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f9e46] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f9e49] [cursor=pointer]:
+          - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=f9e57] [cursor=pointer]
+  - alert [ref=f9e61]

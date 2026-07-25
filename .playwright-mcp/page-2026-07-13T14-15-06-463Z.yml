@@ -1,0 +1,31 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - heading "تسجيل الدخول" [level=1] [ref=e8]
+        - paragraph [ref=e9]: يرجى تقديم جميع المعلومات المطلوبة للوصول إلى حسابك
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - generic [ref=e12]: البريد الالكتروني
+          - textbox "البريد الالكتروني" [ref=e14]:
+            - /placeholder: بريدك الالكتروني
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - generic [ref=e17]: كلمة السر
+            - generic [ref=e18]:
+              - textbox "كلمة السر" [ref=e19]
+              - button "إظهار كلمة السر" [ref=e21]: إظهار
+          - link "هل نسيت كلمة السر؟" [ref=e22] [cursor=pointer]:
+            - /url: /forgot-password
+      - button "تسجيل دخول" [ref=e23]
+      - generic [ref=e24]: او
+      - generic [ref=e28]:
+        - button "سجل مع جوجل" [ref=e29]
+        - button "سجل مع فيسبوك" [ref=e35]
+      - paragraph [ref=e38]:
+        - text: ليس لديك حساب؟
+        - link "انشئ حساب" [ref=e39] [cursor=pointer]:
+          - /url: /signup
+    - complementary "لوحة ورقة وقلم" [ref=e41]:
+      - img "تصميم قرطاسية ورقة وقلم" [ref=e42]
+      - img "ورقة وقلم" [ref=e44]

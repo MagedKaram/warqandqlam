@@ -1,6 +1,6 @@
 # Warqa w Qalam Frontend
 
-Arabic-first RTL storefront prototype built with Next.js 16 App Router, React 19, TypeScript strict mode, and Tailwind CSS v4.
+Arabic-only RTL storefront prototype built with Next.js 16 App Router, React 19, TypeScript strict mode, and Tailwind CSS v4.
 
 ## Quick Start
 
@@ -13,6 +13,7 @@ Open `http://localhost:3000`.
 ## Project Docs
 
 - `AGENTS.md` - stack rules, Arabic/RTL requirements, frontend-only status, and Figma workflow.
+- `docs/RTL_ARCHITECTURE.md` - mandatory RTL, BiDi, responsive, and semantic DOM patterns.
 - `PROJECT_MAP.md` - routes, source layout, data sources, assets, and global shell map.
 - `COMPONENTS.md` - component inventory and reuse guidance.
 - `UPDATE_WORKFLOW.md` - required checklist for future feature updates and commits.

@@ -15,12 +15,6 @@ export type CompanyLogo = {
   image: string;
 };
 
-export type FaqItem = {
-  id: string;
-  question: string;
-  answer: string;
-};
-
 export type CategoryListItem = {
   id: string;
   slug: string;
@@ -353,33 +347,6 @@ export const companyLogos: CompanyLogo[] = [
   },
 ];
 
-export const faqItems: FaqItem[] = [
-  {
-    id: "delivery-time",
-    question: "كم تستغرق عملية التوصيل؟",
-    answer:
-      "عادة نقوم بالتوصيل خلال 24-48 ساعة داخل القاهرة والجيزة، و3-5 أيام للمحافظات.",
-  },
-  {
-    id: "instant-printing",
-    question: "هل تقدمون خدمة طباعة فورية؟",
-    answer:
-      "نعم، نوفر خدمة الطباعة الفورية لبعض الطلبات حسب حجم الملفات وتوفر أقرب فرع.",
-  },
-  {
-    id: "payment-methods",
-    question: "ما هي طرق الدفع المتاحة؟",
-    answer:
-      "يمكنك الدفع نقداً عند الاستلام أو باستخدام طرق الدفع الإلكتروني المتاحة داخل المتجر.",
-  },
-  {
-    id: "returns",
-    question: "هل يمكن إرجاع المنتجات؟",
-    answer:
-      "يمكن إرجاع المنتجات خلال فترة الاستبدال إذا كانت بحالتها الأصلية ووفق سياسة المتجر.",
-  },
-];
-
 const productDetailBase: ProductDetail = {
   id: "ams-plus-engineering-set",
   slug: "doms-pencil-001",
@@ -451,7 +418,7 @@ const productDetailBase: ProductDetail = {
     },
   ],
   specs: [
-    { id: "components", label: "مكونات الطقم", value: "" },
+    { id: "components", label: "مكونات الطقم", value: "مسطرة، مثلثات، منقلة، برجل، ممحاة، ومبراة" },
     { id: "quality", label: "الخامات و الجودة", value: "خامات عالية الجودة (بلاستيك مقوى + معدن)" },
     { id: "count", label: "عدد القطع", value: "8-9 قطع" },
   ],
@@ -530,6 +497,14 @@ const productDetailSlugs = [
   "products-page-pen-2",
   "products-page-pen-3",
   "products-page-pen-4",
+  "products-page-pen-5",
+  "products-page-pen-6",
+  "products-page-pen-7",
+  "products-page-pen-8",
+  "products-page-pen-9",
+  "products-page-pen-10",
+  "products-page-pen-11",
+  "products-page-pen-12",
   "related-bravo-pencils",
   "related-doms-fusion-1",
   "related-doms-fusion-2",

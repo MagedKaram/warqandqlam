@@ -2,20 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import {
   PiArrowsClockwise,
   PiArrowLeft,
   PiHeart,
   PiHeartFill,
-  PiMinus,
-  PiPlus,
   PiShoppingCartSimple,
   PiStar,
   PiStarFill,
   PiTruck,
   PiWallet,
 } from "react-icons/pi";
+import { useCart } from "@/components/cart/CartProvider";
+import { ProductCard } from "@/components/product/ProductCard";
+import { QuantityStepper } from "@/components/ui/QuantityStepper";
+import { createProductCardCartInput } from "@/lib/cart/product-card-adapter";
 import type {
   ProductDetail,
   ProductDetailImage,
@@ -35,14 +38,19 @@ const tabLabels: Record<ProductDetailTabId, string> = {
 };
 
 function RatingStars({
+  inheritDirection = false,
   rating,
   size = "text-lg",
 }: {
+  inheritDirection?: boolean;
   rating: number;
   size?: string;
 }) {
   return (
-    <span className="inline-flex items-center gap-0.5" dir="ltr">
+    <span
+      className="inline-flex items-center gap-0.5"
+      dir={inheritDirection ? undefined : "ltr"}
+    >
       {Array.from({ length: 5 }, (_, index) => {
         const Icon = index < rating ? PiStarFill : PiStar;
         return (
@@ -73,12 +81,40 @@ function ProductGallery({
   onToggleWishlist: () => void;
 }) {
   return (
-    <div className="flex gap-8 lg:flex-row" dir="rtl">
-      <div className="hidden w-20 shrink-0 flex-col gap-8 lg:flex">
+    <div className="flex min-w-0 flex-col gap-4 xl:col-start-1 xl:row-start-1 xl:grid xl:w-[533px] xl:grid-cols-[80px_421px] xl:gap-8">
+      <div className="relative h-[358px] w-full overflow-hidden rounded-[9px] bg-cool-200 xl:col-start-2 xl:row-start-1 xl:w-[421px]">
+        <span className="absolute right-6 top-5 z-20 inline-flex h-8 w-[72px] items-center justify-center whitespace-nowrap rounded-[7px] bg-auth-accent px-2 text-sm font-semibold leading-[1.5] text-white">
+          {discountBadge}
+        </span>
+        <button
+          aria-label={isWishlisted ? "إزالة من المفضلة" : "إضافة إلى المفضلة"}
+          aria-pressed={isWishlisted}
+          className="absolute left-6 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-auth-ink shadow-sm transition hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
+          onClick={onToggleWishlist}
+          type="button"
+        >
+          {isWishlisted ? (
+            <PiHeartFill aria-hidden className="text-xl text-auth-accent" />
+          ) : (
+            <PiHeart aria-hidden className="text-xl" />
+          )}
+        </button>
+        <Image
+          alt={activeImage.alt}
+          className="object-cover"
+          fill
+          loading="eager"
+          sizes="(min-width: 1280px) 421px, (min-width: 768px) calc(100vw - 5rem), calc(100vw - 3rem)"
+          src={activeImage.src}
+        />
+      </div>
+
+      <div className="flex max-w-full gap-4 overflow-x-auto pb-1 xl:col-start-1 xl:row-start-1 xl:h-[358px] xl:w-20 xl:flex-col xl:justify-between xl:gap-0 xl:overflow-visible xl:pb-0">
         {images.map((image) => (
           <button
             aria-label={`عرض صورة ${image.alt}`}
-            className={`relative h-[65px] w-20 overflow-hidden rounded-md border bg-white p-2 transition ${
+            aria-pressed={activeImage.id === image.id}
+            className={`flex h-[65px] w-20 shrink-0 items-center justify-center rounded-md border bg-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2 ${
               activeImage.id === image.id
                 ? "border-auth-accent"
                 : "border-auth-border/60 hover:border-auth-accent"
@@ -87,42 +123,21 @@ function ProductGallery({
             onClick={() => onSelectImage(image)}
             type="button"
           >
-            <Image
-              alt=""
-              className="object-cover"
-              fill
-              sizes="80px"
-              src={image.src}
-            />
+            <span
+              className={`relative block h-[49px] w-16 overflow-hidden ${
+                activeImage.id === image.id ? "rounded-[9px]" : ""
+              }`}
+            >
+              <Image
+                alt=""
+                className="object-cover"
+                fill
+                sizes="64px"
+                src={image.src}
+              />
+            </span>
           </button>
         ))}
-      </div>
-
-      <div className="relative h-[358px] w-full overflow-hidden rounded-lg bg-cool-200 lg:w-[421px] lg:shrink-0">
-        <span className="absolute right-6 top-6 z-20 rounded-md bg-auth-accent px-4 py-2 text-sm font-bold text-white">
-          {discountBadge}
-        </span>
-        <button
-          aria-label={isWishlisted ? "إزالة من المفضلة" : "إضافة إلى المفضلة"}
-          aria-pressed={isWishlisted}
-          className="absolute left-6 top-6 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white text-auth-ink shadow-sm transition hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent"
-          onClick={onToggleWishlist}
-          type="button"
-        >
-          {isWishlisted ? (
-            <PiHeartFill aria-hidden className="text-2xl text-auth-accent" />
-          ) : (
-            <PiHeart aria-hidden className="text-2xl" />
-          )}
-        </button>
-        <Image
-          alt={activeImage.alt}
-          className="object-cover"
-          fill
-          priority
-          sizes="(min-width: 1024px) 421px, 92vw"
-          src={activeImage.src}
-        />
       </div>
     </div>
   );
@@ -132,132 +147,148 @@ function ProductPurchasePanel({
   product,
   quantity,
   selectedColor,
-  onDecrease,
-  onIncrease,
+  onQuantityChange,
+  onAddToCart,
+  onBuyNow,
   onSelectColor,
 }: {
   product: ProductDetail;
   quantity: number;
   selectedColor: string;
-  onDecrease: () => void;
-  onIncrease: () => void;
+  onQuantityChange: (quantity: number) => void;
+  onAddToCart: () => void;
+  onBuyNow: () => void;
   onSelectColor: (colorId: string) => void;
 }) {
   return (
-    <section className="w-full text-right lg:w-[538px] lg:shrink-0" dir="rtl">
-      <div className="flex flex-col items-end gap-[27px]">
-        <div className="flex flex-col items-end gap-2 self-stretch">
-          <span className="inline-flex items-center gap-1 rounded-full bg-home-promo px-4 py-2 text-sm font-bold text-auth-accent">
-            <PiStarFill aria-hidden />
+    <section className="w-full text-start xl:col-start-2 xl:row-start-1 xl:w-[538px]">
+      <div className="flex flex-col items-start gap-[27px]">
+        <div className="flex flex-col items-start gap-2 self-stretch xl:h-[158px]">
+          <span className="inline-flex h-9 items-center gap-1 rounded-full bg-home-promo py-2 pe-3 ps-2 text-sm font-semibold leading-[1.5] text-auth-accent">
+            <PiStarFill aria-hidden className="text-base" />
             {product.badge}
           </span>
 
-          <div className="flex flex-col items-end gap-2.5 self-stretch">
-            <h1 className="rtl-text self-stretch font-body text-[32px] font-semibold leading-[1.3] text-auth-ink">
+          <div className="flex flex-col items-start gap-2.5 self-stretch">
+            <h1 className="w-full text-start font-body text-[32px] font-semibold leading-[1.3] text-auth-ink">
               <span>{product.title} </span>
-              <bdi className="ltr-isolate text-auth-link">
+              <bdi className="whitespace-nowrap text-auth-link" dir="ltr">
                 {product.brandHighlight}
               </bdi>
             </h1>
-            <p className="rtl-text self-stretch font-body text-base font-semibold leading-[1.35] text-auth-muted">
+            <p className="w-full text-start font-body text-base font-semibold leading-[1.35] text-auth-muted">
               {product.subtitle}
             </p>
 
-            <div
-              className="flex flex-wrap items-center gap-3 text-base font-semibold text-auth-ink"
-              dir="ltr"
-            >
-              <span className="rtl-isolate">{product.soldText}</span>
-              <span className="text-auth-muted">|</span>
-              <span className="rtl-isolate">
-                ({product.reviewCount} تقييم)
+            <div className="flex min-h-[30px] flex-wrap items-center gap-3 text-base font-semibold leading-[1.35] text-auth-ink">
+              <span className="flex items-center gap-1">
+                <RatingStars
+                  inheritDirection
+                  rating={product.rating}
+                  size="text-base"
+                />
+                <span className="flex items-center gap-2">
+                  <bdi dir="ltr">{product.rating}</bdi>
+                  <span>
+                    (<bdi dir="ltr">{product.reviewCount}</bdi> تقييم)
+                  </span>
+                </span>
               </span>
-              <span>{product.rating}</span>
-              <RatingStars rating={product.rating} />
+              <span className="whitespace-nowrap border-s border-auth-border px-2 py-1">
+                {product.soldText}
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-8" dir="ltr">
-          <span className="price-text text-xl font-semibold text-auth-muted line-through">
-            {product.oldPrice} جنيه
-          </span>
-          <span className="price-text text-2xl font-bold text-auth-accent">
+        <div className="flex items-center gap-6">
+          <bdi
+            className="font-heading text-2xl font-bold leading-[1.35] text-auth-accent"
+            dir="ltr"
+          >
             {product.price} {product.currency}
-          </span>
+          </bdi>
+          <bdi
+            className="font-heading text-xl font-normal leading-[1.35] text-auth-muted line-through"
+            dir="ltr"
+          >
+            {product.oldPrice} جنيه
+          </bdi>
         </div>
 
-        <div
-          className="flex flex-col items-end gap-8 xl:flex-row xl:items-center xl:justify-end xl:gap-[84px]"
-          dir="ltr"
-        >
-          <div className="flex items-center justify-end gap-3">
-            <div className="flex items-center gap-3" dir="ltr">
+        <div className="flex flex-col items-start gap-8 xl:flex-row xl:items-center xl:gap-[84px]">
+          <div className="flex items-center gap-4">
+            <span
+              className="font-body text-base font-semibold leading-[1.35] text-auth-muted"
+              id="product-quantity-label"
+            >
+              الكمية:
+            </span>
+            <QuantityStepper
+              labelledBy="product-quantity-label"
+              onChange={onQuantityChange}
+              value={quantity}
+            />
+          </div>
+
+          <div
+            aria-labelledby="product-color-label"
+            className="flex items-center gap-2"
+            role="group"
+          >
+            <span
+              className="font-body text-base font-semibold leading-[1.35] text-auth-muted"
+              id="product-color-label"
+            >
+              اللون:
+            </span>
+            <div className="flex flex-row-reverse items-center gap-2">
               {product.colors.map((color) => (
                 <button
                   aria-label={color.label}
                   aria-pressed={selectedColor === color.id}
-                  className={`h-9 w-9 rounded-full border-2 transition focus:outline-none focus:ring-2 focus:ring-auth-accent ${
+                  className={`flex h-8 w-8 items-center justify-center rounded-full border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2 ${
                     selectedColor === color.id
-                      ? "border-auth-ink"
+                      ? "border-auth-ink bg-white"
                       : "border-transparent"
                   }`}
                   key={color.id}
                   onClick={() => onSelectColor(color.id)}
-                  style={{ backgroundColor: color.value }}
+                  style={
+                    selectedColor === color.id
+                      ? undefined
+                      : { backgroundColor: color.value }
+                  }
                   type="button"
-                />
+                >
+                  {selectedColor === color.id ? (
+                    <span
+                      aria-hidden
+                      className="h-6 w-6 rounded-full"
+                      style={{ backgroundColor: color.value }}
+                    />
+                  ) : null}
+                </button>
               ))}
             </div>
-            <span className="font-body text-lg font-bold text-auth-muted">
-              اللون:
-            </span>
-          </div>
-
-          <div className="flex items-center justify-end gap-3">
-            <div
-              className="flex h-12 w-36 items-center justify-between rounded-md border border-auth-border bg-white px-3"
-              dir="ltr"
-            >
-              <button
-                aria-label="زيادة الكمية"
-                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-ink transition hover:bg-cool-200 focus:outline-none focus:ring-2 focus:ring-auth-accent"
-                onClick={onIncrease}
-                type="button"
-              >
-                <PiPlus aria-hidden className="text-xl" />
-              </button>
-              <span className="text-xl font-bold text-auth-ink">
-                {quantity}
-              </span>
-              <button
-                aria-label="تقليل الكمية"
-                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-ink transition hover:bg-cool-200 focus:outline-none focus:ring-2 focus:ring-auth-accent"
-                onClick={onDecrease}
-                type="button"
-              >
-                <PiMinus aria-hidden className="text-xl" />
-              </button>
-            </div>
-            <span className="font-body text-lg font-bold text-auth-muted">
-              الكمية:
-            </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 self-stretch" dir="ltr">
+        <div className="grid grid-cols-2 gap-4 self-stretch xl:gap-8">
           <button
-            className="h-12 rounded-md border border-auth-ink bg-white px-6 text-lg font-bold text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-auth-accent px-4 text-base font-semibold text-white transition hover:bg-auth-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2"
+            onClick={onAddToCart}
+            type="button"
+          >
+            <PiShoppingCartSimple aria-hidden className="text-2xl" />
+            أضف للسلة
+          </button>
+          <button
+            className="h-12 rounded-lg border border-auth-ink bg-white px-4 text-base font-semibold text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2"
+            onClick={onBuyNow}
             type="button"
           >
             اشتري الآن
-          </button>
-          <button
-            className="inline-flex h-12 items-center justify-center gap-3 rounded-md bg-auth-accent px-6 text-lg font-bold text-white transition hover:bg-auth-accent/90 focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
-            type="button"
-          >
-            أضف للسلة
-            <PiShoppingCartSimple aria-hidden className="text-2xl" />
           </button>
         </div>
       </div>
@@ -315,10 +346,10 @@ function ProductInfoTabs({
 
   return (
     <section>
-      <div className="flex justify-start gap-16 border-b border-auth-border">
+      <div className="flex max-w-full justify-start gap-8 overflow-x-auto overflow-y-hidden border-b border-auth-border sm:gap-12 lg:gap-16">
         {tabs.map((tab) => (
           <button
-            className={`relative pb-5 font-heading text-3xl font-bold transition focus:outline-none focus:ring-2 focus:ring-auth-accent ${
+            className={`relative shrink-0 pb-5 font-heading text-2xl font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-auth-accent sm:text-3xl ${
               activeTab === tab ? "text-auth-accent" : "text-auth-ink"
             }`}
             key={tab}
@@ -327,7 +358,7 @@ function ProductInfoTabs({
           >
             {tabLabels[tab]}
             {activeTab === tab ? (
-              <span className="absolute inset-x-0 -bottom-px h-0.5 bg-auth-accent" />
+              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-auth-accent" />
             ) : null}
           </button>
         ))}
@@ -345,9 +376,15 @@ function ProductInfoTabs({
                   className="group border-b border-auth-border py-5"
                   key={item.id}
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-body text-lg font-bold text-auth-ink">
-                    <span className="text-2xl text-auth-accent">+</span>
-                    <span>{item.title}</span>
+                  <summary className="flex w-full min-w-0 cursor-pointer list-none items-center justify-between gap-6 text-start font-body text-lg font-bold text-auth-ink">
+                    <span className="min-w-0 text-start">{item.title}</span>
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-2xl text-auth-accent"
+                    >
+                      <span className="group-open:hidden">+</span>
+                      <span className="hidden group-open:inline">-</span>
+                    </span>
                   </summary>
                   <p className="mt-4 font-body text-base font-semibold leading-7 text-auth-muted">
                     {item.content}
@@ -407,83 +444,35 @@ function ProductInfoTabs({
   );
 }
 
-function RelatedProductCard({ product }: { product: RelatedProduct }) {
-  return (
-    <article className="relative rounded-lg border border-neutral-400 bg-white p-4 text-right">
-      {product.badge ? (
-        <span
-          className={`absolute right-4 top-4 rounded-full px-3 py-1 text-sm font-bold ${
-            product.badgeTone === "discount"
-              ? "bg-home-promo text-auth-accent"
-              : "bg-auth-success-soft text-auth-success"
-          }`}
-        >
-          {product.badge}
-        </span>
-      ) : null}
-      <button
-        aria-label="إضافة إلى المفضلة"
-        className="absolute left-4 top-4 z-10 flex h-8 w-8 items-center justify-center text-auth-ink transition hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent"
-        type="button"
-      >
-        <PiHeart aria-hidden className="text-lg" />
-      </button>
-      <Link className="block" href={product.href} prefetch={false}>
-        <div className="relative mx-auto h-52 w-full">
-          <Image
-            alt={product.title}
-            className="object-contain"
-            fill
-            sizes="25vw"
-            src={product.image}
-          />
-        </div>
-        <h3 className="mt-4 min-h-8 font-body text-lg font-bold text-auth-ink">
-          {product.title}
-        </h3>
-        <p
-          className="mt-1 text-right text-xl font-bold text-auth-ink"
-          dir="ltr"
-        >
-          {product.price} {product.currency ?? "LE"}
-        </p>
-        <div className="mt-2 flex items-center justify-end gap-2">
-          <RatingStars rating={product.rating} />
-          <span className="text-sm font-bold text-auth-muted">
-            {product.reviewCount}
-          </span>
-        </div>
-      </Link>
-      <button
-        className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-auth-accent text-base font-bold text-white transition hover:bg-auth-accent/90 focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
-        type="button"
-      >
-        <PiShoppingCartSimple aria-hidden className="text-xl" />
-        أضف للسلة
-      </button>
-    </article>
-  );
-}
-
-function RelatedProducts({ products }: { products: RelatedProduct[] }) {
+function RelatedProducts({
+  onAddProduct,
+  products,
+}: {
+  onAddProduct: (product: RelatedProduct) => void;
+  products: RelatedProduct[];
+}) {
   return (
     <section>
-      <div className="mb-8 flex items-center justify-between gap-6" dir="ltr">
+      <div className="mb-8 flex min-w-0 flex-wrap items-center justify-between gap-4">
+        <h2 className="text-start font-heading text-4xl font-bold text-auth-ink">
+          منتجات ذات صلة
+        </h2>
         <Link
-          className="inline-flex items-center gap-2 font-body text-base font-semibold text-auth-accent hover:underline"
+          className="inline-flex items-center gap-2 font-body text-base font-semibold text-auth-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
           href="/products"
           prefetch={false}
         >
           عرض جميع المنتجات
           <PiArrowLeft aria-hidden className="text-lg" />
         </Link>
-        <h2 className="font-heading text-4xl font-bold text-auth-ink" dir="rtl">
-          منتجات ذات صلة
-        </h2>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
-          <RelatedProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            onAddToCart={() => onAddProduct(product)}
+            product={product}
+          />
         ))}
       </div>
     </section>
@@ -526,30 +515,61 @@ function DeliveryPromo({ promo }: { promo: ProductDetail["deliveryPromo"] }) {
 }
 
 export function ProductDetailsView({ product }: ProductDetailsViewProps) {
+  const router = useRouter();
+  const { addProduct } = useCart();
   const [activeImage, setActiveImage] = useState(product.images[0]);
   const [activeTab, setActiveTab] = useState<ProductDetailTabId>("details");
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(
-    product.colors[0]?.id ?? "",
+    product.colors.find((color) => color.id === "black")?.id ??
+      product.colors[0]?.id ??
+      "",
   );
   const [wishlisted, setWishlisted] = useState(false);
+  const [cartMessage, setCartMessage] = useState("");
+
+  function getSelectedColor() {
+    const color = product.colors.find((option) => option.id === selectedColor);
+    return color
+      ? { id: color.id, label: color.label, value: color.value }
+      : undefined;
+  }
+
+  function addCurrentProduct() {
+    addProduct({
+      productId: product.id,
+      title: product.title,
+      brandName: product.brandHighlight,
+      image: product.images[0].src,
+      imageAlt: product.images[0].alt,
+      href: `/products/${product.slug}`,
+      unitPrice: product.price,
+      quantity,
+      selectedColor: getSelectedColor(),
+    });
+    setCartMessage("تمت إضافة المنتج إلى سلة التسوق.");
+  }
+
+  function addRelatedProduct(relatedProduct: RelatedProduct) {
+    addProduct(createProductCardCartInput(relatedProduct));
+    setCartMessage("تمت إضافة المنتج المقترح إلى سلة التسوق.");
+  }
 
   return (
     <main className="bg-white text-foreground">
       <section className="px-6 pb-16 pt-10 md:px-10">
         <div className="mx-auto max-w-7xl">
-          <div
-            className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-end"
-            dir="ltr"
-          >
+          <div className="mx-auto grid w-full max-w-[1111px] grid-cols-1 items-start gap-10 xl:grid-cols-[533px_538px]">
             <ProductPurchasePanel
+              onAddToCart={addCurrentProduct}
+              onBuyNow={() => {
+                addCurrentProduct();
+                router.push("/checkout");
+              }}
               product={product}
               quantity={quantity}
               selectedColor={selectedColor}
-              onDecrease={() =>
-                setQuantity((current) => Math.max(1, current - 1))
-              }
-              onIncrease={() => setQuantity((current) => current + 1)}
+              onQuantityChange={setQuantity}
               onSelectColor={setSelectedColor}
             />
             <ProductGallery
@@ -575,10 +595,17 @@ export function ProductDetailsView({ product }: ProductDetailsViewProps) {
           </div>
 
           <div className="mt-20">
-            <RelatedProducts products={product.relatedProducts} />
+            <RelatedProducts
+              onAddProduct={addRelatedProduct}
+              products={product.relatedProducts}
+            />
           </div>
         </div>
       </section>
+
+      <p aria-live="polite" className="sr-only">
+        {cartMessage}
+      </p>
 
       <DeliveryPromo promo={product.deliveryPromo} />
     </main>

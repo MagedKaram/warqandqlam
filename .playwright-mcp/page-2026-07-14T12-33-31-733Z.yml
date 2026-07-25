@@ -1,0 +1,120 @@
+- generic [active] [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f5e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f5e6]:
+      - navigation "التنقل الرئيسي" [ref=f5e7]:
+        - link "الرئيسية" [ref=f5e8] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f5e9] [cursor=pointer]:
+          - /url: /categories
+        - link "الطباعة" [ref=f5e10] [cursor=pointer]:
+          - /url: /printing
+        - link "المنتجات" [ref=f5e11] [cursor=pointer]:
+          - /url: /products
+        - link "تواصل معنا" [ref=f5e12] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f5e13]:
+        - button "بحث" [ref=f5e15]
+        - generic [ref=f5e18]:
+          - link "المفضلة" [ref=f5e19] [cursor=pointer]:
+            - /url: /wishlist
+          - link "السلة" [ref=f5e22] [cursor=pointer]:
+            - /url: /cart
+          - link "الحساب" [ref=f5e25] [cursor=pointer]:
+            - /url: /login
+  - main [ref=f5e28]:
+    - generic [ref=f5e29]:
+      - generic [ref=f5e30]:
+        - heading "الأسئلة الشائعة" [level=1] [ref=f5e31]
+        - paragraph [ref=f5e32]: إجابات على أكثر الأسئلة شيوعاً
+      - generic [ref=f5e33]:
+        - region [ref=f5e34]:
+          - heading "أسئلة عامة" [level=2] [ref=f5e35]
+          - generic [ref=f5e36]:
+            - article [ref=f5e37]:
+              - heading [level=3] [ref=f5e38]:
+                - button "كم تستغرق عملية التوصيل؟" [expanded] [ref=f5e39]:
+                  - generic [ref=f5e41]: −
+              - region "كم تستغرق عملية التوصيل؟" [ref=f5e42]:
+                - paragraph [ref=f5e43]: عادة نقوم بالتوصيل خلال 24-48 ساعة داخل القاهرة والجيزة، و3-5 أيام للمحافظات.
+            - article [ref=f5e44]:
+              - heading [level=3] [ref=f5e45]:
+                - button "هل تقدمون خدمة طباعة فورية؟" [ref=f5e46]:
+                  - generic [ref=f5e48]: +
+            - article [ref=f5e49]:
+              - heading [level=3] [ref=f5e50]:
+                - button "ما هي طرق الدفع المتاحة؟" [ref=f5e51]:
+                  - generic [ref=f5e53]: +
+            - article [ref=f5e54]:
+              - heading [level=3] [ref=f5e55]:
+                - button "هل يمكن إرجاع المنتجات؟" [ref=f5e56]:
+                  - generic [ref=f5e58]: +
+        - region [ref=f5e59]:
+          - heading "الطلبات والشحن" [level=2] [ref=f5e60]
+          - generic [ref=f5e61]:
+            - article [ref=f5e62]:
+              - heading [level=3] [ref=f5e63]:
+                - button "كم تستغرق عملية التوصيل؟" [expanded] [ref=f5e64]:
+                  - generic [ref=f5e66]: −
+              - region "كم تستغرق عملية التوصيل؟" [ref=f5e67]:
+                - paragraph [ref=f5e68]: عادة نقوم بالتوصيل خلال 24-48 ساعة داخل القاهرة والجيزة، و3-5 أيام للمحافظات.
+            - article [ref=f5e69]:
+              - heading [level=3] [ref=f5e70]:
+                - button "هل تقدمون خدمة طباعة فورية؟" [ref=f5e71]:
+                  - generic [ref=f5e73]: +
+            - article [ref=f5e74]:
+              - heading [level=3] [ref=f5e75]:
+                - button "ما هي طرق الدفع المتاحة؟" [ref=f5e76]:
+                  - generic [ref=f5e78]: +
+            - article [ref=f5e79]:
+              - heading [level=3] [ref=f5e80]:
+                - button "هل يمكن إرجاع المنتجات؟" [ref=f5e81]:
+                  - generic [ref=f5e83]: +
+        - region [ref=f5e84]:
+          - heading "الدفع والاسترجاع" [level=2] [ref=f5e85]
+          - generic [ref=f5e86]:
+            - article [ref=f5e87]:
+              - heading [level=3] [ref=f5e88]:
+                - button "كم تستغرق عملية التوصيل؟" [expanded] [ref=f5e89]:
+                  - generic [ref=f5e91]: −
+              - region "كم تستغرق عملية التوصيل؟" [ref=f5e92]:
+                - paragraph [ref=f5e93]: عادة نقوم بالتوصيل خلال 24-48 ساعة داخل القاهرة والجيزة، و3-5 أيام للمحافظات.
+            - article [ref=f5e94]:
+              - heading [level=3] [ref=f5e95]:
+                - button "هل تقدمون خدمة طباعة فورية؟" [ref=f5e96]:
+                  - generic [ref=f5e98]: +
+            - article [ref=f5e99]:
+              - heading [level=3] [ref=f5e100]:
+                - button "ما هي طرق الدفع المتاحة؟" [ref=f5e101]:
+                  - generic [ref=f5e103]: +
+            - article [ref=f5e104]:
+              - heading [level=3] [ref=f5e105]:
+                - button "هل يمكن إرجاع المنتجات؟" [ref=f5e106]:
+                  - generic [ref=f5e108]: +
+  - contentinfo [ref=f5e109]:
+    - generic [ref=f5e110]:
+      - link "ورقة وقلم" [ref=f5e111] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f5e112]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f5e113]:
+        - link "الرئيسية" [ref=f5e114] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f5e115] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f5e116] [cursor=pointer]:
+          - /url: /faq
+        - link "من نحن" [ref=f5e117] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f5e118] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f5e119]:
+        - link "Facebook" [ref=f5e120] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f5e123] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f5e126] [cursor=pointer]:
+          - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=f5e134] [cursor=pointer]

@@ -5,10 +5,12 @@ Use this checklist for every feature, page, or UI update. The goal is to keep th
 ## Before Building
 
 1. Read `AGENTS.md` for project rules.
-2. Read `PROJECT_MAP.md` to understand routes, data sources, assets, and shell behavior.
-3. Read `COMPONENTS.md` before creating any new component.
-4. Search the codebase with `rg` for similar UI, data, or behavior.
-5. For Next.js-specific changes, read the relevant guide under `node_modules/next/dist/docs/`.
+2. For UI work, read `docs/RTL_ARCHITECTURE.md` before changing layout,
+   ordering, responsive behavior, or mixed-direction content.
+3. Read `PROJECT_MAP.md` to understand routes, data sources, assets, and shell behavior.
+4. Read `COMPONENTS.md` before creating any new component.
+5. Search the codebase with `rg` for similar UI, data, or behavior.
+6. For Next.js-specific changes, read the relevant guide under `node_modules/next/dist/docs/`.
 
 ## Reuse Rules
 
@@ -42,6 +44,8 @@ Update docs in the same change when behavior changes:
 
 - Add or update `COMPONENTS.md` when adding, removing, renaming, or broadening a component.
 - Add or update `PROJECT_MAP.md` when adding routes, assets, data modules, or global shell behavior.
+- Add or update `docs/RTL_ARCHITECTURE.md` when the project-wide RTL,
+  responsive, BiDi, or semantic-order contract changes.
 - Add or update `BACKEND_INTEGRATION.md` when backend assumptions or API contracts change.
 - Add or update this file when the implementation process changes.
 

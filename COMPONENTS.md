@@ -1,13 +1,13 @@
 # Component Inventory
 
-This file documents the current UI components so new pages reuse existing building blocks before creating new ones. The app is Arabic-first and RTL by default; keep using the configured Tailwind font tokens and CSS variables.
+This file documents the current UI components so new pages reuse existing building blocks before creating new ones. The app is Arabic-only and RTL by default; keep using the configured Tailwind font tokens and CSS variables.
 
 ## Layout
 
 | Component | Path | Role | Used by | Reuse notes |
 | --- | --- | --- | --- | --- |
-| `SiteShell` | `components/layout/SiteShell.tsx` | Wraps public pages with route preloader, header, and footer while hiding them on auth routes. | `app/layout.tsx` | Use for global shell behavior only. Add route-level exceptions here if needed. |
-| `Header` | `components/layout/Header/Header.tsx` | Public nav, promo bar, search popover, mobile drawer, account/cart/wishlist actions. | `SiteShell` | Do not duplicate nav/action bars in pages. Extend this component for global header changes. |
+| `SiteShell` | `components/layout/SiteShell.tsx` | Wraps the app with cart state, then frames public pages with the route preloader, header, and footer while hiding the shell on auth routes. | `app/layout.tsx` | Use for global shell behavior only. Add route-level exceptions here if needed. |
+| `Header` | `components/layout/Header/Header.tsx` | Public nav, promo bar, search popover, mobile drawer, account/cart/wishlist actions, and hydrated cart-line counter. | `SiteShell` | Do not duplicate nav/action bars or cart badges in pages. Extend this component for global header changes. |
 | `Footer` | `components/layout/Footer.tsx` | Public footer with brand copy, links, and social icons. | `SiteShell` | Do not create page-specific footers unless the route is intentionally outside the public shell. |
 | `RoutePreloader` | `components/layout/RoutePreloader.tsx` | Route transition loading overlay. | `SiteShell` | Shared global behavior. |
 
@@ -15,11 +15,39 @@ This file documents the current UI components so new pages reuse existing buildi
 
 | Component | Path | Role | Used by | Reuse notes |
 | --- | --- | --- | --- | --- |
-| `ProductCard` | `components/product/ProductCard.tsx` | Shared product tile with image, new badge, wishlist action, title, and price. | `BestSellers`, `WishlistContent`, `/products` | Use for every product grid/carousel before creating another card. Add props here if product tiles need a controlled visual variant. |
+| `ProductCard` | `components/product/ProductCard.tsx` | Shared typed product tile. Its Cart-canonical `recommendation` variant owns image, badge, wishlist, price, rating, and add-to-cart behavior; `catalog` preserves the lighter listing tile. | Cart and Product Details related products, `BestSellers`, `WishlistContent`, `/products` | Reuse the card itself while keeping context-specific section wrappers separate. Add only proven visual variants. |
 | `ProductsFilterControls` | `components/product/ProductsFilterControls.tsx` | Products-page sort control and RTL filter drawer. | `/products` | Page-specific for now. If category pages need filters, promote this to a generic catalog filter component. |
 | `ProductDetailsView` | `components/product/ProductDetailsView.tsx` | Product detail composition: gallery, purchase controls, service strip, tabs, related products, and delivery promo. | `/products/[slug]` | Detail-page shell. Keep the route as a Server Component and put browser interactions here. |
 | `SchoolPromo` | `components/home/SchoolPromo.tsx` | Reusable school-supplies promo banner with discount pill, title, CTA, and image. | Home page, `/products` | Shared by home and products. Use props for `headingLevel`, `ctaHref`, image source, and image dimensions instead of rebuilding the banner. |
 | `SectionButton` | `components/home/SectionButton.tsx` | Orange CTA link with optional icon. | `PrintServices`, `SchoolPromo` | Use for section CTA links that match the orange button style. |
+
+## Cart, Checkout, And Orders
+
+| Component | Path | Role | Used by | Reuse notes |
+| --- | --- | --- | --- | --- |
+| `CartProvider` | `components/cart/CartProvider.tsx` | Unified product/printing cart reducer, safe hydration, persistence, derived counts, totals, and coupon actions. | `SiteShell` | Use `useCart`; do not create route-local cart state or new storage keys. |
+| `CartPageClient` | `components/cart/CartPageClient.tsx` | Cart composition for empty, product, printing, mixed, summary, and related-product states. | `/cart` | Keep item-specific rendering in the row components. |
+| `ProductCartItemRow` / `PrintingCartItemRow` | `components/cart/` | Accessible, responsive rows for the two cart-item union members. | `CartItemList` | Extend the matching row when a cart-item field changes. |
+| `QuantityStepper` | `components/ui/QuantityStepper.tsx` | Shared semantic decrement/value/increment control with safe min/max bounds and the approved Cart appearance. | Product cart rows, Product Details purchase panel | Preserve decrement/value/increment DOM order, truthful Arabic labels, and focus-visible behavior. Printing copy count intentionally remains separate. |
+| `OrderSummary` | `components/cart/OrderSummary.tsx` | Shared item preview, printing aggregates, coupon, shipping, discount, and total summary. | `/cart`, `/checkout` | Reuse for both routes; summary rows keep Arabic label then isolated numeric value in the DOM. |
+| `CouponControl` | `components/cart/CouponControl.tsx` | Coupon input with processing, valid, invalid, and removal states. | `OrderSummary` | Coupon definitions and math stay in `lib/cart/`. |
+| `CheckoutPageClient` | `components/checkout/CheckoutPageClient.tsx` | Delivery/payment composition, explicit method switching, selected-radio focus restoration, safe retry context, and shared frontend-only COD, Vodafone, Instapay, and Bank Card order orchestration. | `/checkout` | Keep payment transitions in the checkout reducer and registry. Sensitive card fields remain transient. |
+| `DeliveryForm` | `components/checkout/DeliveryForm.tsx` | Semantic Arabic delivery form with validation and optional saved-information preference. | `CheckoutPageClient` | Phone and email inputs are the only LTR-isolated fields. |
+| `PaymentMethodSelector` | `components/checkout/PaymentMethodSelector.tsx` | Typed payment registry selector for COD, Vodafone Cash, Instapay, and Bank Card, including the selected-input focus target used after returning from a flow. | `CheckoutPageClient` | Method labels, availability, marks, and extra-step metadata remain centralized in the registry. |
+| `VodafoneCashFlow` | `components/checkout/payment-flows/VodafoneCashFlow.tsx` | Vodafone transfer instructions, PNG receipt-metadata capture, sender validation fields, and responsive details layout. | `CheckoutPageClient` | Never retain the raw `File`; validate it and pass serializable metadata into checkout state. |
+| `InstapayFlow` | `components/checkout/payment-flows/InstapayFlow.tsx` | Instapay targets, QR instructions, PNG proof metadata, and sender validation. | `CheckoutPageClient` | Reuses the neutral transfer-proof fields without retaining the raw `File`. |
+| `BankCardFlow` | `components/checkout/payment-flows/BankCardFlow.tsx` | Responsive cardholder/PAN/expiry/CVV prototype form with typed validation and narrow LTR input islands. | `CheckoutPageClient` | Never persist PAN, expiry, CVV, or raw form state; only brand and last four may enter a prototype order. |
+| `SelectedPaymentMethodSummary` | `components/checkout/SelectedPaymentMethodSummary.tsx` | Shared selected-method row and Arabic change-method action for payment details and Order Review. | Vodafone, Instapay, Bank Card, `OrderReview` | Keep the row/action responsive RTL layout shared; processing intentionally renders no change action. |
+| `OrderReview` | `components/checkout/OrderReview.tsx` | Shared review for delivery information, selected payment method, optional safe card metadata, and the shared change-method action. | `CheckoutPageClient` | Do not add payment-specific duplicate review pages or expose sensitive card values. |
+| `PaymentProcessingStatus` | `components/checkout/payment-flows/PaymentProcessingStatus.tsx` | Shared frontend-prototype processing state for payment methods that require review. | `CheckoutPageClient` | Must not imply bank/provider verification or a real charge; payment switching is unavailable while processing is locked. |
+| `CashOnDeliveryFlow` / `PaymentFlowPlaceholder` | `components/checkout/payment-flows/` | Approved COD note and an extensibility placeholder for future methods. | `CheckoutPageClient` | Add future method-specific flows behind the typed checkout state machine. |
+| `OrderResultView` | `components/order/OrderResultView.tsx` | Shared success/failure result screen; failure offers same-method retry and change-payment navigation. | `/order/success`, `/order/failed` | Both failure actions preserve the cart and consume only safe session-scoped retry context. |
+
+## Printing
+
+| Component | Path | Role | Used by | Reuse notes |
+| --- | --- | --- | --- | --- |
+| `PrintingPageClient` | `components/printing/PrintingPageClient.tsx` | Transient file selection/preview, printing options, quote, and conversion to persisted cart metadata. | `/printing` | Never persist `File`, `Blob`, or object URLs; only pass metadata to `CartProvider`. |
 
 ## Home Sections
 
@@ -57,11 +85,11 @@ This file documents the current UI components so new pages reuse existing buildi
 
 ## Current Duplication Audit
 
-- `ProductCard` is already reused correctly by home best sellers, wishlist, and the products grid.
+- `ProductCard` is reused by home best sellers, wishlist, products listing, and both related-products sections. The `recommendation` variant is sourced from the approved Cart card; the `catalog` variant preserves the intentionally different listing presentation.
 - The products page originally duplicated the school promo banner. It now reuses `SchoolPromo` with products-page props.
 - The products page still has inline pagination. Keep it inline while it is only used once; extract to a shared `Pagination` component if categories/search pages need the same control.
 - `ProductsFilterControls` is products-page-specific today. Promote it only when another catalog route needs the same filter drawer.
-- Product details uses a page-specific related product card inside `ProductDetailsView` because those cards include rating and add-to-cart controls that the listing `ProductCard` does not provide.
+- Cart and Product Details keep separate related-section wrappers, but render the same shared `ProductCard` rather than duplicating card markup.
 - The header/footer are global through `SiteShell`; pages should not recreate them.
 
 ## Before Creating A New Component

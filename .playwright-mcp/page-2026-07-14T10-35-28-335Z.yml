@@ -1,0 +1,130 @@
+- generic [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - generic [ref=f7e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f7e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f7e6]:
+      - navigation "التنقل الرئيسي" [ref=f7e7]:
+        - link "الرئيسية" [ref=f7e8] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f7e9] [cursor=pointer]:
+          - /url: /categories
+        - link "الطباعة" [ref=f7e10] [cursor=pointer]:
+          - /url: /printing
+        - link "المنتجات" [ref=f7e11] [cursor=pointer]:
+          - /url: /products
+        - link "تواصل معنا" [ref=f7e12] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f7e13]:
+        - button "بحث" [ref=f7e15]
+        - generic [ref=f7e18]:
+          - link "المفضلة" [ref=f7e19] [cursor=pointer]:
+            - /url: /wishlist
+          - link "السلة، 1 عنصر" [ref=f7e22] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=f7e25]: "1"
+          - link "الحساب" [ref=f7e26] [cursor=pointer]:
+            - /url: /login
+  - main [ref=f7e29]:
+    - generic [ref=f7e31]:
+      - generic [ref=f7e33]:
+        - region [ref=f7e34]:
+          - heading "معلومات التوصيل" [level=1] [ref=f7e35]
+          - generic [ref=f7e36]:
+            - generic [ref=f7e37]:
+              - generic [ref=f7e38]: الاسم الكامل *
+              - textbox "الاسم الكامل" [ref=f7e39]:
+                - /placeholder: أدخل اسمك الكامل
+            - generic [ref=f7e40]:
+              - generic [ref=f7e41]: رقم الهاتف *
+              - textbox "رقم الهاتف" [ref=f7e42]:
+                - /placeholder: 01*********
+            - generic [ref=f7e44]:
+              - generic [ref=f7e45]: البريد الإلكتروني *
+              - textbox "البريد الإلكتروني" [ref=f7e46]:
+                - /placeholder: example@gmail.com
+            - generic [ref=f7e48]:
+              - generic [ref=f7e49]: العنوان *
+              - textbox "العنوان" [ref=f7e50]:
+                - /placeholder: الشارع، المنطقة، رقم المبنى
+            - generic [ref=f7e52]:
+              - generic [ref=f7e53]: المدينة / المحافظة *
+              - textbox "المدينة / المحافظة" [ref=f7e54]:
+                - /placeholder: القاهرة، الإسكندرية
+            - generic [ref=f7e55]:
+              - generic [ref=f7e56]: ملاحظات إضافية
+              - textbox "ملاحظات إضافية" [ref=f7e57]:
+                - /placeholder: أي ملاحظات خاصة بالطلب...
+          - generic [ref=f7e58] [cursor=pointer]:
+            - checkbox "حفظ هذه المعلومات للمرة القادمة" [ref=f7e59]
+            - generic [ref=f7e60]: حفظ هذه المعلومات للمرة القادمة
+        - region [ref=f7e61]:
+          - group "طريقة الدفع" [ref=f7e62]:
+            - generic [ref=f7e64]:
+              - generic [ref=f7e65] [cursor=pointer]:
+                - radio "الدفع عند الاستلام" [ref=f7e66]
+                - generic [ref=f7e67]: الدفع عند الاستلام
+              - generic [ref=f7e71] [cursor=pointer]:
+                - radio "فودافون كاش" [checked] [active] [ref=f7e72]
+                - generic [ref=f7e73]: فودافون كاش
+              - generic [ref=f7e75] [cursor=pointer]:
+                - radio "إنستاباي" [ref=f7e76]
+                - generic [ref=f7e77]: إنستاباي
+              - generic [ref=f7e81] [cursor=pointer]:
+                - radio "بطاقة بنكية" [ref=f7e82]
+                - generic [ref=f7e83]: بطاقة بنكية
+      - complementary [ref=f7e92]:
+        - heading "ملخص الطلب" [level=2] [ref=f7e93]
+        - article [ref=f7e95]:
+          - generic [ref=f7e96]: "2"
+          - generic [ref=f7e98]:
+            - paragraph [ref=f7e99]: قلم رصاص ماركة دومز للاختبار
+            - generic [ref=f7e100]: 170 LE
+        - generic [ref=f7e102]:
+          - generic [ref=f7e103]:
+            - generic [ref=f7e106]: كود الخصم
+            - textbox "كود الخصم" [ref=f7e107]:
+              - /placeholder: هل تمتلك كوبون خصم؟
+            - button "تفعيل" [ref=f7e108]
+          - paragraph [ref=f7e109]
+        - generic [ref=f7e110]:
+          - generic [ref=f7e111]:
+            - term [ref=f7e112]: مجموع المنتجات
+            - definition [ref=f7e113]: 170 LE
+          - generic [ref=f7e114]:
+            - term [ref=f7e115]: المجموع الفرعي
+            - definition [ref=f7e116]: 170 LE
+          - generic [ref=f7e117]:
+            - term [ref=f7e118]: الشحن
+            - definition [ref=f7e119]: 60 LE
+        - paragraph [ref=f7e120]: أضف منتجات بقيمة 330 LE للحصول على شحن مجاني.
+        - generic [ref=f7e122]:
+          - paragraph [ref=f7e123]: المجموع الكلي
+          - generic [ref=f7e124]: 230 LE
+        - button "المتابعة للدفع" [ref=f7e158]
+  - contentinfo [ref=f7e128]:
+    - generic [ref=f7e129]:
+      - link "ورقة وقلم" [ref=f7e130] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f7e131]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f7e132]:
+        - link "الرئيسية" [ref=f7e133] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f7e134] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f7e135] [cursor=pointer]:
+          - /url: /#faq
+        - link "من نحن" [ref=f7e136] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f7e137] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f7e138]:
+        - link "Facebook" [ref=f7e139] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f7e142] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f7e145] [cursor=pointer]:
+          - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=f7e153] [cursor=pointer]
+  - alert [ref=f7e157]

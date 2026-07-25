@@ -90,7 +90,7 @@ export function PhoneField({
 
   return (
     <div className="space-y-2">
-      <label className="block text-right text-xl font-semibold text-auth-ink" htmlFor={id}>
+      <label className="block text-start text-xl font-semibold text-auth-ink" htmlFor={id}>
         رقم الهاتف
       </label>
 
@@ -101,7 +101,7 @@ export function PhoneField({
             aria-expanded={open}
             aria-haspopup="listbox"
             aria-label="اختيار الدولة"
-            className="flex h-full w-36 items-center justify-center gap-2 rounded-r-md border-l border-auth-border px-2 text-sm font-semibold text-auth-ink outline-none sm:w-44 sm:text-base"
+            className="flex h-full w-36 items-center justify-center gap-2 rounded-s-md border-e border-auth-border px-2 text-sm font-semibold text-auth-ink outline-none sm:w-44 sm:text-base"
             onClick={() => {
               setOpen((current) => !current);
               setSearch("");
@@ -119,8 +119,9 @@ export function PhoneField({
           <PhoneInput
             aria-describedby={error ? `${id}-error` : undefined}
             aria-invalid={Boolean(error)}
-            className="h-full min-w-0 flex-1 rounded-l-md px-3 text-lg text-auth-ink outline-none placeholder:text-auth-muted sm:px-4 sm:text-xl"
+            className="h-full min-w-0 flex-1 rounded-e-md px-3 text-lg text-auth-ink outline-none placeholder:text-auth-muted sm:px-4 sm:text-xl"
             country={country}
+            dir="ltr"
             id={id}
             international={false}
             onChange={(nextValue) => onValueChange(nextValue ?? "")}
@@ -131,13 +132,12 @@ export function PhoneField({
 
         {open ? (
           <div
-            className="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-full rounded-md border border-auth-border bg-white p-3 shadow-xl"
+            className="absolute start-0 top-[calc(100%+0.5rem)] z-50 w-full rounded-md border border-auth-border bg-white p-3 shadow-xl"
             id={dropdownId}
           >
             <input
               aria-label="بحث الدولة"
-              className="h-12 w-full rounded-md border border-auth-border px-4 text-right text-base text-auth-ink outline-none placeholder:text-auth-muted focus:border-auth-link focus:ring-2 focus:ring-auth-link/20"
-              dir="rtl"
+              className="h-12 w-full rounded-md border border-auth-border px-4 text-start text-base text-auth-ink outline-none placeholder:text-auth-muted focus:border-auth-link focus:ring-2 focus:ring-auth-link/20"
               onChange={(event) => setSearch(event.target.value)}
               placeholder="ابحث باسم الدولة أو الرمز"
               value={search}
@@ -150,7 +150,7 @@ export function PhoneField({
                 return (
                   <button
                     aria-selected={item.code === country}
-                    className="flex w-full items-center justify-between gap-3 rounded-md px-3 py-2 text-right text-base font-semibold text-auth-ink hover:bg-auth-cream focus:bg-auth-cream focus:outline-none"
+                    className="flex w-full items-center justify-between gap-3 rounded-md px-3 py-2 text-start text-base font-semibold text-auth-ink hover:bg-auth-cream focus-visible:bg-auth-cream focus-visible:outline-none"
                     key={item.code}
                     onClick={() => {
                       onCountryChange(item.code);
@@ -178,7 +178,7 @@ export function PhoneField({
       </div>
 
       {error ? (
-        <p className="text-right text-sm font-medium text-auth-accent" id={`${id}-error`}>
+        <p className="text-start text-sm font-medium text-auth-accent" id={`${id}-error`}>
           {error}
         </p>
       ) : null}

@@ -1,0 +1,56 @@
+- generic [active] [ref=f122e1]:
+  - button "Open Next.js Dev Tools" [ref=f122e7] [cursor=pointer]
+  - banner [ref=f122e11]:
+    - generic [ref=f122e12]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f122e13] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f122e15]:
+      - navigation "التنقل الرئيسي" [ref=f122e16]:
+        - link "الرئيسية" [ref=f122e17] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f122e18] [cursor=pointer]:
+          - /url: /categories
+        - link "الطباعة" [ref=f122e19] [cursor=pointer]:
+          - /url: /printing
+        - link "المنتجات" [ref=f122e20] [cursor=pointer]:
+          - /url: /products
+        - link "تواصل معنا" [ref=f122e21] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f122e22]:
+        - button "بحث" [ref=f122e24]
+        - generic [ref=f122e27]:
+          - link "المفضلة" [ref=f122e28] [cursor=pointer]:
+            - /url: /wishlist
+          - link "السلة، 1 عنصر" [ref=f122e31] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=f122e34]: "1"
+          - link "الحساب" [ref=f122e35] [cursor=pointer]:
+            - /url: /login
+  - generic [ref=f122e39]:
+    - heading "404" [level=1] [ref=f122e40]
+    - heading "This page could not be found." [level=2] [ref=f122e42]
+  - contentinfo [ref=f122e43]:
+    - generic [ref=f122e44]:
+      - link "ورقة وقلم" [ref=f122e45] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f122e46]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f122e47]:
+        - link "الرئيسية" [ref=f122e48] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f122e49] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f122e50] [cursor=pointer]:
+          - /url: /faq
+        - link "من نحن" [ref=f122e51] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f122e52] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f122e53]:
+        - link "Facebook" [ref=f122e54] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f122e57] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f122e60] [cursor=pointer]:
+          - /url: "#"
+  - alert [ref=f122e63]

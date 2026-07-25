@@ -44,17 +44,36 @@ export function AuthLayout({
   const content = (
     <section
       className={`flex min-h-screen w-full min-w-0 items-center justify-center overflow-x-hidden px-6 py-10 sm:px-10 lg:px-16 ${contentClassName}`}
-      dir="rtl"
     >
       {children}
     </section>
   );
 
+  const contentColumn = (
+    <div
+      className={`min-w-0 ${
+        artworkSide === "left" ? "lg:col-start-2" : "lg:col-start-1"
+      } lg:row-start-1`}
+    >
+      {content}
+    </div>
+  );
+
+  const artworkColumn = (
+    <div
+      className={`min-w-0 ${
+        artworkSide === "left" ? "lg:col-start-1" : "lg:col-start-2"
+      } lg:row-start-1`}
+    >
+      <ArtworkPanel />
+    </div>
+  );
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-auth-ink">
-      <div className="grid min-h-screen w-full min-w-0 lg:grid-cols-2" dir="ltr">
-        {artworkSide === "left" ? <ArtworkPanel /> : content}
-        {artworkSide === "left" ? content : <ArtworkPanel />}
+      <div className="grid min-h-screen w-full min-w-0 lg:grid-cols-2">
+        {contentColumn}
+        {artworkColumn}
       </div>
     </main>
   );

@@ -1,0 +1,62 @@
+
+> warqandqlam@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.49:3000
+✓ Ready in 508ms
+
+ GET /cart 200 in 1623ms (next.js: 1030ms, application-code: 593ms)
+ GET /products/products-page-pen-1 200 in 2.2s (next.js: 2.1s, generate-params: 542ms, application-code: 84ms)
+ GET /cart 200 in 143ms (next.js: 48ms, application-code: 95ms)
+ GET /cart 200 in 40ms (next.js: 6ms, application-code: 34ms)
+ GET /printing 200 in 154ms (next.js: 107ms, application-code: 47ms)
+ GET /cart 200 in 41ms (next.js: 5ms, application-code: 36ms)
+ GET /checkout 200 in 106ms (next.js: 76ms, application-code: 31ms)
+ GET /order/success 200 in 250ms (next.js: 212ms, application-code: 38ms)
+ GET /products 200 in 175ms (next.js: 122ms, application-code: 52ms)
+ GET /cart 200 in 37ms (next.js: 6ms, application-code: 32ms)
+✓ Compiled in 839ms
+ GET /cart 200 in 264ms (next.js: 125ms, application-code: 139ms)
+ GET /products/products-page-pen-1 200 in 86ms (next.js: 38ms, generate-params: 9ms, application-code: 49ms)
+ GET /products 200 in 300ms (next.js: 240ms, application-code: 61ms)
+ GET /products/products-page-pen-1 200 in 64ms (next.js: 23ms, generate-params: 17ms, application-code: 41ms)
+ GET /cart 200 in 94ms (next.js: 9ms, application-code: 85ms)
+ GET /checkout 200 in 157ms (next.js: 113ms, application-code: 44ms)
+✓ Compiled in 673ms
+ GET /checkout 200 in 328ms (next.js: 81ms, application-code: 247ms)
+ GET /products/products-page-pen-1 200 in 222ms (next.js: 101ms, generate-params: 6ms, application-code: 121ms)
+ GET /checkout 200 in 80ms (next.js: 16ms, application-code: 64ms)
+ GET /products/products-page-pen-1 200 in 39ms (next.js: 7ms, generate-params: 52µs, application-code: 33ms)
+✓ Compiled in 60ms
+ GET /checkout 200 in 251ms (next.js: 127ms, application-code: 124ms)
+ GET /products/products-page-pen-1 200 in 84ms (next.js: 33ms, generate-params: 7ms, application-code: 51ms)
+✓ Compiled in 83ms
+ GET /checkout 200 in 168ms (next.js: 63ms, application-code: 105ms)
+ GET /products/products-page-pen-1 200 in 67ms (next.js: 25ms, generate-params: 6ms, application-code: 42ms)
+✓ Compiled in 92ms
+ GET /checkout 200 in 159ms (next.js: 60ms, application-code: 99ms)
+ GET /products/products-page-pen-1 200 in 73ms (next.js: 30ms, generate-params: 7ms, application-code: 43ms)
+✓ Compiled in 184ms
+ GET /checkout 200 in 298ms (next.js: 78ms, application-code: 220ms)
+ GET /checkout 200 in 165ms (next.js: 59ms, application-code: 106ms)
+ GET /products/products-page-pen-1 200 in 167ms (next.js: 109ms, generate-params: 6ms, application-code: 58ms)
+ GET /products/products-page-pen-1 200 in 30ms (next.js: 4ms, generate-params: 33µs, application-code: 26ms)
+✓ Compiled in 337ms
+✓ Compiled in 89ms
+✓ Compiled in 95ms
+✓ Compiled in 52ms
+ GET /checkout 200 in 166ms (next.js: 63ms, application-code: 103ms)
+ GET /products/products-page-pen-1 200 in 77ms (next.js: 28ms, generate-params: 6ms, application-code: 49ms)
+✓ Compiled in 270ms
+ GET /checkout 200 in 681ms (next.js: 218ms, application-code: 463ms)
+ GET /products/products-page-pen-1 200 in 117ms (next.js: 39ms, generate-params: 11ms, application-code: 78ms)
+ GET /products/products-page-pen-1 200 in 32ms (next.js: 5ms, generate-params: 31µs, application-code: 26ms)
+✓ Compiled in 49ms
+ GET /checkout 200 in 176ms (next.js: 69ms, application-code: 107ms)
+ GET /products/products-page-pen-1 200 in 67ms (next.js: 31ms, generate-params: 8ms, application-code: 36ms)
+ GET /checkout 200 in 222ms (next.js: 4ms, application-code: 218ms)
+ GET /checkout 200 in 50ms (next.js: 7ms, application-code: 43ms)
+ GET /checkout 200 in 38ms (next.js: 4ms, application-code: 34ms)
+[?25h

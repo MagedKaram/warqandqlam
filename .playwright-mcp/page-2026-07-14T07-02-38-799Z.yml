@@ -1,0 +1,171 @@
+- generic [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f5e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f5e6]:
+      - navigation "التنقل الرئيسي" [ref=f5e7]:
+        - link "الرئيسية" [ref=f5e8] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f5e9] [cursor=pointer]:
+          - /url: /categories
+        - link "الطباعة" [ref=f5e10] [cursor=pointer]:
+          - /url: /printing
+        - link "المنتجات" [ref=f5e11] [cursor=pointer]:
+          - /url: /products
+        - link "تواصل معنا" [ref=f5e12] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f5e13]:
+        - generic [ref=f5e14]:
+          - link "الحساب" [ref=f5e15] [cursor=pointer]:
+            - /url: /login
+          - link "السلة" [ref=f5e18] [cursor=pointer]:
+            - /url: /cart
+          - link "المفضلة" [ref=f5e21] [cursor=pointer]:
+            - /url: /wishlist
+        - button "بحث" [ref=f5e25]
+  - main [ref=f5e28]:
+    - generic [ref=f5e30]:
+      - generic [ref=f5e31]:
+        - generic [ref=f5e33]:
+          - generic [ref=f5e34]:
+            - generic [ref=f5e35]: الأكثر مبيعاً
+            - generic [ref=f5e38]:
+              - heading "أدوات الهندسة الاحترافية من AMS PLUS" [level=1] [ref=f5e39]:
+                - generic [ref=f5e40]: أدوات الهندسة الاحترافية من
+                - text: AMS PLUS
+              - paragraph [ref=f5e41]: طقم هندسي متكامل بجودة عالية و دقة مثالية للرسم الهندسي و العملي.
+              - generic [ref=f5e42]:
+                - generic [ref=f5e43]: +50 تم بيعهم هذا الأسبوع
+                - generic [ref=f5e44]: "|"
+                - generic [ref=f5e45]: (128 تقييم)
+                - generic [ref=f5e46]: "4"
+          - generic [ref=f5e58]:
+            - generic [ref=f5e59]: 80 جنيه
+            - generic [ref=f5e60]: 65 جنيه
+          - generic [ref=f5e61]:
+            - generic [ref=f5e62]:
+              - generic [ref=f5e63]:
+                - button "أحمر" [pressed] [ref=f5e64]
+                - button "أزرق" [ref=f5e65]
+                - button "أخضر" [ref=f5e66]
+                - button "أسود" [ref=f5e67]
+              - generic [ref=f5e68]: "اللون:"
+            - generic [ref=f5e69]:
+              - generic [ref=f5e70]:
+                - button "زيادة الكمية" [active] [ref=f5e71]
+                - generic [ref=f5e74]: "1"
+                - button "تقليل الكمية" [ref=f5e75]
+              - generic [ref=f5e78]: "الكمية:"
+          - generic [ref=f5e79]:
+            - button "اشتري الآن" [ref=f5e80]
+            - button "أضف للسلة" [ref=f5e81]
+        - generic [ref=f5e84]:
+          - generic [ref=f5e85]:
+            - button "عرض صورة طقم هندسة دومز جيوفاين على لوحة رسم" [ref=f5e86]
+            - button "عرض صورة مكونات طقم الهندسة داخل علبة" [ref=f5e87]
+            - button "عرض صورة تفاصيل أدوات طقم الهندسة" [ref=f5e88]
+            - button "عرض صورة علبة طقم الهندسة دومز جيوفاين" [ref=f5e89]
+          - generic [ref=f5e90]:
+            - generic [ref=f5e91]: خصم 20%
+            - button "إضافة إلى المفضلة" [ref=f5e92]
+            - img "طقم هندسة دومز جيوفاين على لوحة رسم" [ref=f5e95]
+      - generic [ref=f5e98]:
+        - generic [ref=f5e103]:
+          - heading "توصيل سريع" [level=2] [ref=f5e104]
+          - paragraph [ref=f5e105]: 2-5 أيام
+        - generic [ref=f5e110]:
+          - heading "استرجاع سهل" [level=2] [ref=f5e111]
+          - paragraph [ref=f5e112]: خلال 14 يوم
+        - generic [ref=f5e117]:
+          - heading "طرق الدفع" [level=2] [ref=f5e118]
+          - paragraph [ref=f5e119]: الدفع عند الاستلام، البطاقات الائتمانية، والمحافظ الإلكترونية.
+      - generic [ref=f5e121]:
+        - generic [ref=f5e122]:
+          - button "التفاصيل" [ref=f5e123]
+          - button "المواصفات" [ref=f5e125]
+          - button "التقييم" [ref=f5e126]
+        - generic [ref=f5e128]:
+          - paragraph [ref=f5e129]: طقم هندسي متكامل بجودة عالية و دقة مثالية للرسم الهندسي و العملي.
+          - generic [ref=f5e130]:
+            - group [ref=f5e131]:
+              - generic "الشحن و التوصيل" [ref=f5e132] [cursor=pointer]: +
+            - group [ref=f5e135]:
+              - generic "سياسة الإرجاع" [ref=f5e136] [cursor=pointer]: +
+            - group [ref=f5e139]:
+              - generic "طرق الدفع" [ref=f5e140] [cursor=pointer]: +
+      - generic [ref=f5e144]:
+        - generic [ref=f5e145]:
+          - link "عرض جميع المنتجات" [ref=f5e146] [cursor=pointer]:
+            - /url: /products
+          - heading "منتجات ذات صلة" [level=2] [ref=f5e149]
+        - generic [ref=f5e150]:
+          - article [ref=f5e151]:
+            - generic [ref=f5e152]: خصم %20
+            - button "إضافة إلى المفضلة" [ref=f5e153]
+            - link "اقلام رصاص - من شركة bravo اقلام رصاص - من شركة bravo 170 LE 98" [ref=f5e156] [cursor=pointer]:
+              - /url: /products/related-bravo-pencils
+              - img "اقلام رصاص - من شركة bravo" [ref=f5e158]
+              - heading "اقلام رصاص - من شركة bravo" [level=3] [ref=f5e159]
+              - paragraph [ref=f5e160]: 170 LE
+              - generic [ref=f5e161]: "98"
+            - button "أضف للسلة" [ref=f5e174]
+          - article [ref=f5e177]:
+            - generic [ref=f5e178]: منتج جديد
+            - button "إضافة إلى المفضلة" [ref=f5e179]
+            - link "قلم رصاص ماركه دومز قلم رصاص ماركه دومز 17 LE 98" [ref=f5e182] [cursor=pointer]:
+              - /url: /products/related-doms-fusion-1
+              - img "قلم رصاص ماركه دومز" [ref=f5e184]
+              - heading "قلم رصاص ماركه دومز" [level=3] [ref=f5e185]
+              - paragraph [ref=f5e186]: 17 LE
+              - generic [ref=f5e187]: "98"
+            - button "أضف للسلة" [ref=f5e200]
+          - article [ref=f5e203]:
+            - generic [ref=f5e204]: منتج جديد
+            - button "إضافة إلى المفضلة" [ref=f5e205]
+            - link "قلم رصاص ماركه دومز قلم رصاص ماركه دومز 17 LE 98" [ref=f5e208] [cursor=pointer]:
+              - /url: /products/related-doms-fusion-2
+              - img "قلم رصاص ماركه دومز" [ref=f5e210]
+              - heading "قلم رصاص ماركه دومز" [level=3] [ref=f5e211]
+              - paragraph [ref=f5e212]: 17 LE
+              - generic [ref=f5e213]: "98"
+            - button "أضف للسلة" [ref=f5e226]
+          - article [ref=f5e229]:
+            - button "إضافة إلى المفضلة" [ref=f5e230]
+            - link "قلم رصاص ماركه دومز قلم رصاص ماركه دومز 17 LE 98" [ref=f5e233] [cursor=pointer]:
+              - /url: /products/related-faber-pencils
+              - img "قلم رصاص ماركه دومز" [ref=f5e235]
+              - heading "قلم رصاص ماركه دومز" [level=3] [ref=f5e236]
+              - paragraph [ref=f5e237]: 17 LE
+              - generic [ref=f5e238]: "98"
+            - button "أضف للسلة" [ref=f5e251]
+    - generic [ref=f5e255]:
+      - img "مندوب توصيل على دراجة" [ref=f5e257]
+      - generic [ref=f5e258]:
+        - heading "توصيل مجاني" [level=2] [ref=f5e259]
+        - paragraph [ref=f5e260]: للطلبات فوق 500 جنيه
+      - paragraph [ref=f5e261]: عرض خاص
+  - contentinfo [ref=f5e262]:
+    - generic [ref=f5e263]:
+      - link "ورقة وقلم" [ref=f5e264] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f5e265]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f5e266]:
+        - link "الرئيسية" [ref=f5e267] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f5e268] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f5e269] [cursor=pointer]:
+          - /url: /#faq
+        - link "من نحن" [ref=f5e270] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f5e271] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f5e272]:
+        - link "Facebook" [ref=f5e273] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f5e276] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f5e279] [cursor=pointer]:
+          - /url: "#"

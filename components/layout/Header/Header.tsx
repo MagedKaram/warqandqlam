@@ -12,6 +12,7 @@ import {
   PiUser,
   PiX,
 } from "react-icons/pi";
+import { useCart } from "@/components/cart/CartProvider";
 
 type NavItem = {
   label: string;
@@ -78,7 +79,13 @@ function HeaderNavLink({
   );
 }
 
-function ActionLink({ href, icon, activeIcon, label }: ActionItem) {
+function ActionLink({
+  href,
+  icon,
+  activeIcon,
+  label,
+  count,
+}: ActionItem & { count?: number }) {
   const pathname = usePathname();
   const active = isActivePath(pathname, href);
   const Icon = active && activeIcon ? activeIcon : icon;
@@ -86,19 +93,33 @@ function ActionLink({ href, icon, activeIcon, label }: ActionItem) {
   return (
     <Link
       aria-current={active ? "page" : undefined}
-      aria-label={label}
-      className={`flex h-14 w-14 items-center justify-center rounded-md transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link ${
+      aria-label={
+        typeof count === "number" && count > 0
+          ? `${label}، ${count} ${count === 1 ? "عنصر" : "عناصر"}`
+          : label
+      }
+      className={`relative flex h-14 w-14 items-center justify-center rounded-md transition hover:bg-auth-cream hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-link ${
         active ? "bg-home-promo text-auth-accent" : "text-auth-ink"
       }`}
       href={href}
       prefetch={false}
     >
       <Icon aria-hidden className="text-3xl" />
+      {typeof count === "number" && count > 0 ? (
+        <bdi
+          aria-hidden
+          className="absolute -top-1 start-0 flex h-6 min-w-6 items-center justify-center rounded-full bg-auth-ink px-1 text-xs font-bold text-white"
+          dir="ltr"
+        >
+          {count > 99 ? "99+" : count}
+        </bdi>
+      ) : null}
     </Link>
   );
 }
 
 export function Header() {
+  const { hydrated, lineCount } = useCart();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -123,7 +144,7 @@ export function Header() {
   }, [drawerOpen]);
 
   return (
-    <header className="w-full bg-white" dir="rtl">
+    <header className="w-full bg-white">
       <div className="bg-auth-ink px-6 py-2 text-center text-sm font-medium text-white sm:text-base">
         <span>احصل على خصم 25% على أول طلب لك </span>
         <Link
@@ -149,44 +170,59 @@ export function Header() {
           <button
             aria-expanded={drawerOpen}
             aria-label="فتح القائمة"
-            className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-link lg:hidden"
             onClick={() => setDrawerOpen(true)}
             type="button"
           >
             <PiList aria-hidden className="text-3xl" />
           </button>
 
-          <div className="flex items-center gap-5" dir="ltr">
-            <div className="hidden items-center gap-5 lg:flex">
-              {actionItems.map((item) => (
-                <ActionLink key={item.href} {...item} />
-              ))}
-            </div>
-
-            <div className="flex items-center gap-3 lg:hidden">
-              <ActionLink href="/cart" icon={PiShoppingCartSimple} label="السلة" />
-            </div>
-
-            <div className="relative" dir="rtl">
+          <div className="flex items-center gap-5">
+            <div className="relative">
               <button
                 aria-expanded={searchOpen}
                 aria-label="بحث"
-                className="flex h-14 w-14 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link"
+                className="flex h-14 w-14 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-link"
                 onClick={() => setSearchOpen((current) => !current)}
                 type="button"
               >
                 <PiMagnifyingGlass aria-hidden className="text-3xl" />
               </button>
               {searchOpen ? (
-                <div className="absolute left-0 top-[calc(100%+0.75rem)] z-40 w-72 rounded-md border border-auth-border bg-white p-3 shadow-xl">
+                <div className="absolute end-0 top-[calc(100%+0.75rem)] z-40 w-72 max-w-[calc(100vw-2rem)] rounded-md border border-auth-border bg-white p-3 shadow-xl">
                   <input
                     aria-label="بحث في الموقع"
-                    className="h-11 w-full rounded-md border border-auth-border px-4 text-right text-base outline-none placeholder:text-auth-muted focus:border-auth-link focus:ring-2 focus:ring-auth-link/20"
+                    className="h-11 w-full rounded-md border border-auth-border px-4 text-start text-base outline-none placeholder:text-auth-muted focus:border-auth-link focus:ring-2 focus:ring-auth-link/20"
                     placeholder="ابحث عن منتج"
                     type="search"
                   />
                 </div>
               ) : null}
+            </div>
+
+            <div className="hidden items-center gap-5 lg:flex">
+              <ActionLink
+                href="/wishlist"
+                icon={PiHeart}
+                activeIcon={PiHeartFill}
+                label="المفضلة"
+              />
+              <ActionLink
+                count={hydrated ? lineCount : undefined}
+                href="/cart"
+                icon={PiShoppingCartSimple}
+                label="السلة"
+              />
+              <ActionLink href="/login" icon={PiUser} label="الحساب" />
+            </div>
+
+            <div className="flex items-center gap-3 lg:hidden">
+              <ActionLink
+                count={hydrated ? lineCount : undefined}
+                href="/cart"
+                icon={PiShoppingCartSimple}
+                label="السلة"
+              />
             </div>
           </div>
         </div>
@@ -206,7 +242,7 @@ export function Header() {
               <p className="text-lg font-bold text-auth-ink">ورقة وقلم</p>
               <button
                 aria-label="إغلاق القائمة"
-                className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-link"
+                className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink hover:bg-auth-cream hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-link"
                 onClick={() => setDrawerOpen(false)}
                 type="button"
               >

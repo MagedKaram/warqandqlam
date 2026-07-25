@@ -4,7 +4,7 @@ import { PiFacebookLogo, PiInstagramLogo, PiTwitterLogo } from "react-icons/pi";
 const footerLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "الأقسام", href: "/categories" },
-  { label: "الأسئلة الشائعة", href: "/#faq" },
+  { label: "الأسئلة الشائعة", href: "/faq" },
   { label: "من نحن", href: "/about" },
   { label: "تواصل معنا", href: "/contact" },
 ];
@@ -17,7 +17,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-auth-ink px-6 py-20 text-white md:px-10" dir="rtl">
+    <footer className="bg-auth-ink px-6 py-20 text-white md:px-10">
       <div className="mx-auto max-w-7xl text-center">
         <Link
           className="font-heading text-4xl font-bold text-auth-accent"

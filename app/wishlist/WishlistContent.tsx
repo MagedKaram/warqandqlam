@@ -18,7 +18,7 @@ function EmptyWishlist() {
           لم تقم بالإعجاب بأي منتج بعد
         </p>
         <Link
-          className="mt-8 inline-flex h-14 min-w-64 items-center justify-center rounded-md bg-auth-accent px-8 font-body text-xl font-bold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
+          className="mt-8 inline-flex h-14 min-w-64 items-center justify-center rounded-md bg-auth-accent px-8 font-body text-xl font-bold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2"
           href="/products"
           prefetch={false}
         >
@@ -55,7 +55,6 @@ export function WishlistContent({ forceEmpty }: { forceEmpty: boolean }) {
         <div className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
             <ProductCard
-              {...product}
               isWishlisted
               key={product.id}
               onToggleWishlist={() =>
@@ -65,6 +64,8 @@ export function WishlistContent({ forceEmpty }: { forceEmpty: boolean }) {
                   return next;
                 })
               }
+              product={product}
+              variant="catalog"
             />
           ))}
         </div>

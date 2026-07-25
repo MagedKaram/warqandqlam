@@ -10,6 +10,23 @@ export type Product = {
   category?: string;
 };
 
+export type ProductCardBadgeTone = "success" | "discount";
+
+/**
+ * Serializable storefront view model shared by catalog and recommendation
+ * cards. Product-detail and persisted cart-item models intentionally remain
+ * separate because they own different interaction and storage concerns.
+ */
+export type ProductCardProduct = Product & {
+  imageAlt?: string;
+  oldPrice?: number;
+  rating?: number;
+  reviewCount?: number;
+  badge?: string;
+  badgeTone?: ProductCardBadgeTone;
+  isAvailable?: boolean;
+};
+
 export type ProductFilterGroup = {
   id: string;
   title: string;
@@ -61,13 +78,8 @@ export type ProductReview = {
   text: string;
 };
 
-export type RelatedProduct = Product & {
-  oldPrice?: number;
-  rating: number;
-  reviewCount: number;
-  badge?: string;
-  badgeTone?: "success" | "discount";
-};
+export type RelatedProduct = ProductCardProduct &
+  Required<Pick<ProductCardProduct, "rating" | "reviewCount">>;
 
 export type ProductDetail = {
   id: string;

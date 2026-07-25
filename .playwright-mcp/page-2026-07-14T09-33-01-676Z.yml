@@ -1,0 +1,165 @@
+- generic [active] [ref=f11e1]:
+  - banner [ref=f11e2]:
+    - generic [ref=f11e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f11e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f11e6]:
+      - navigation "التنقل الرئيسي" [ref=f11e7]:
+        - link "الرئيسية" [ref=f11e8] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f11e9] [cursor=pointer]:
+          - /url: /categories
+        - link "الطباعة" [ref=f11e10] [cursor=pointer]:
+          - /url: /printing
+        - link "المنتجات" [ref=f11e11] [cursor=pointer]:
+          - /url: /products
+        - link "تواصل معنا" [ref=f11e12] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f11e13]:
+        - button "بحث" [ref=f11e15]
+        - generic [ref=f11e18]:
+          - link "المفضلة" [ref=f11e19] [cursor=pointer]:
+            - /url: /wishlist
+          - link "السلة، 2 عناصر" [ref=f11e61] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=f11e62]: "2"
+          - link "الحساب" [ref=f11e25] [cursor=pointer]:
+            - /url: /login
+  - main [ref=f11e63]:
+    - generic [ref=f11e65]:
+      - generic [ref=f11e66]:
+        - region [ref=f11e67]:
+          - heading "معلومات التوصيل" [level=1] [ref=f11e68]
+          - generic [ref=f11e69]:
+            - generic [ref=f11e70]:
+              - generic [ref=f11e71]: الاسم الكامل *
+              - textbox "الاسم الكامل" [ref=f11e72]:
+                - /placeholder: أدخل اسمك الكامل
+            - generic [ref=f11e73]:
+              - generic [ref=f11e74]: رقم الهاتف *
+              - textbox "رقم الهاتف" [ref=f11e75]:
+                - /placeholder: 01*********
+            - generic [ref=f11e77]:
+              - generic [ref=f11e78]: البريد الإلكتروني *
+              - textbox "البريد الإلكتروني" [ref=f11e79]:
+                - /placeholder: example@gmail.com
+            - generic [ref=f11e81]:
+              - generic [ref=f11e82]: العنوان *
+              - textbox "العنوان" [ref=f11e83]:
+                - /placeholder: الشارع، المنطقة، رقم المبنى
+            - generic [ref=f11e85]:
+              - generic [ref=f11e86]: المدينة / المحافظة *
+              - textbox "المدينة / المحافظة" [ref=f11e87]:
+                - /placeholder: القاهرة، الإسكندرية
+            - generic [ref=f11e88]:
+              - generic [ref=f11e89]: ملاحظات إضافية
+              - textbox "ملاحظات إضافية" [ref=f11e90]:
+                - /placeholder: أي ملاحظات خاصة بالطلب...
+          - generic [ref=f11e91] [cursor=pointer]:
+            - checkbox "حفظ هذه المعلومات للمرة القادمة" [ref=f11e92]
+            - generic [ref=f11e93]: حفظ هذه المعلومات للمرة القادمة
+        - region [ref=f11e94]:
+          - group "طريقة الدفع" [ref=f11e95]:
+            - generic [ref=f11e97]:
+              - generic [ref=f11e98] [cursor=pointer]:
+                - radio "الدفع عند الاستلام" [checked] [ref=f11e99]
+                - generic [ref=f11e100]: الدفع عند الاستلام
+              - generic [ref=f11e104] [cursor=pointer]:
+                - radio "فودافون كاش" [ref=f11e105]
+                - generic [ref=f11e106]: فودافون كاش
+              - generic [ref=f11e110] [cursor=pointer]:
+                - radio "إنستاباي" [ref=f11e111]
+                - generic [ref=f11e112]: إنستاباي
+              - generic [ref=f11e116] [cursor=pointer]:
+                - radio "بطاقة بنكية" [ref=f11e117]
+                - generic [ref=f11e118]: بطاقة بنكية
+        - paragraph [ref=f11e122]:
+          - generic [ref=f11e125]: سيتم دفع قيمة الطلب عند الاستلام.
+      - complementary [ref=f11e127]:
+        - heading "ملخص الطلب" [level=2] [ref=f11e128]
+        - generic [ref=f11e129]:
+          - article [ref=f11e130]:
+            - generic [ref=f11e131]: "3"
+            - generic [ref=f11e133]:
+              - paragraph [ref=f11e134]: أدوات الهندسة الاحترافية الطويلة للطلاب والمبدعين AMS PLUS
+              - paragraph [ref=f11e135]: "اللون: أزرق"
+              - generic [ref=f11e136]: 195 LE
+          - article [ref=f11e137]:
+            - generic [ref=f11e138]: "13"
+            - generic [ref=f11e142]:
+              - paragraph [ref=f11e143]: طلب طباعة 2 ملفات
+              - generic "مشروع-التخرج-نسخة-نهائية-باسم-طويل-جداً-للتأكد-من-الالتفاف.pdf" [ref=f11e144]
+              - generic [ref=f11e145]: 85 LE
+        - generic [ref=f11e146]:
+          - generic [ref=f11e147]:
+            - term [ref=f11e148]: عدد الملفات
+            - definition [ref=f11e149]: "2"
+          - generic [ref=f11e150]:
+            - term [ref=f11e151]: إجمالي الصفحات
+            - definition [ref=f11e152]: "13"
+          - generic [ref=f11e153]:
+            - term [ref=f11e154]: عدد النسخ
+            - definition [ref=f11e155]: "2"
+          - generic [ref=f11e156]:
+            - term [ref=f11e157]: نمط الطباعة
+            - definition [ref=f11e158]: ملون
+          - generic [ref=f11e159]:
+            - term [ref=f11e160]: مقاس الورق
+            - definition [ref=f11e161]: A4
+          - generic [ref=f11e162]:
+            - term [ref=f11e163]: التجليد
+            - definition [ref=f11e164]: سلك
+        - generic [ref=f11e166]:
+          - generic [ref=f11e167]:
+            - generic [ref=f11e170]: كود الخصم
+            - textbox "كود الخصم" [ref=f11e171]:
+              - /placeholder: هل تمتلك كوبون خصم؟
+            - button "تفعيل" [ref=f11e172]
+          - paragraph [ref=f11e173]
+        - generic [ref=f11e174]:
+          - generic [ref=f11e175]:
+            - term [ref=f11e176]: مجموع المنتجات
+            - definition [ref=f11e177]: 195 LE
+          - generic [ref=f11e178]:
+            - term [ref=f11e179]: مجموع الطباعة
+            - definition [ref=f11e180]: 85 LE
+          - generic [ref=f11e181]:
+            - term [ref=f11e182]: المجموع الفرعي
+            - definition [ref=f11e183]: 280 LE
+          - generic [ref=f11e184]:
+            - term [ref=f11e185]: الشحن
+            - definition [ref=f11e186]: 60 LE
+        - paragraph [ref=f11e187]: أضف منتجات بقيمة 220 LE للحصول على شحن مجاني.
+        - generic [ref=f11e189]:
+          - paragraph [ref=f11e190]: المجموع الكلي
+          - generic [ref=f11e191]: 340 LE
+        - generic [ref=f11e192]:
+          - button "تأكيد الطلب" [ref=f11e193]
+          - link "العودة إلى السلة" [ref=f11e194] [cursor=pointer]:
+            - /url: /cart
+  - contentinfo [ref=f11e32]:
+    - generic [ref=f11e33]:
+      - link "ورقة وقلم" [ref=f11e34] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f11e35]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f11e36]:
+        - link "الرئيسية" [ref=f11e37] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f11e38] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f11e39] [cursor=pointer]:
+          - /url: /#faq
+        - link "من نحن" [ref=f11e40] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f11e41] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f11e42]:
+        - link "Facebook" [ref=f11e43] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f11e46] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f11e49] [cursor=pointer]:
+          - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=f11e57] [cursor=pointer]
+  - alert [ref=f11e195]

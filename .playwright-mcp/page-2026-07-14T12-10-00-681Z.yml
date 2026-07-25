@@ -1,0 +1,108 @@
+- generic [active] [ref=f23e1]:
+  - banner [ref=f23e2]:
+    - generic [ref=f23e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f23e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f23e6]:
+      - navigation "التنقل الرئيسي" [ref=f23e114]:
+        - link "الرئيسية" [ref=f23e115] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f23e116] [cursor=pointer]:
+          - /url: /categories
+        - link "الطباعة" [ref=f23e117] [cursor=pointer]:
+          - /url: /printing
+        - link "المنتجات" [ref=f23e118] [cursor=pointer]:
+          - /url: /products
+        - link "تواصل معنا" [ref=f23e119] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f23e10]:
+        - button "بحث" [ref=f23e12]
+        - generic [ref=f23e120]:
+          - link "المفضلة" [ref=f23e121] [cursor=pointer]:
+            - /url: /wishlist
+          - link "السلة، 1 عنصر" [ref=f23e124] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=f23e127]: "1"
+          - link "الحساب" [ref=f23e128] [cursor=pointer]:
+            - /url: /login
+  - main [ref=f23e20]:
+    - generic [ref=f23e22]:
+      - region [ref=f23e25]:
+        - heading "طريقة الدفع" [level=1] [ref=f23e26]
+        - 'radio "طريقة الدفع المحددة: بطاقة بنكية" [checked] [ref=f23e27]':
+          - generic [ref=f23e30]: بطاقة بنكية
+        - generic [ref=f23e32]:
+          - generic [ref=f23e33]:
+            - generic [ref=f23e34]: اسم حامل البطاقة
+            - textbox "اسم حامل البطاقة" [ref=f23e35]:
+              - /placeholder: ادخل اسم حامل البطاقة
+          - generic [ref=f23e36]:
+            - generic [ref=f23e37]: رقم البطاقة
+            - textbox "رقم البطاقة" [ref=f23e38]:
+              - /placeholder: ادخل رقم البطاقة
+          - generic [ref=f23e39]:
+            - generic [ref=f23e40]: تاريخ الانتهاء
+            - textbox "تاريخ الانتهاء" [ref=f23e41]:
+              - /placeholder: "--/--"
+          - generic [ref=f23e42]:
+            - generic [ref=f23e43]: CVV
+            - textbox "CVV" [ref=f23e44]:
+              - /placeholder: ...
+        - generic [ref=f23e45] [cursor=pointer]:
+          - checkbox "حفظ هذه المعلومات للمرة القادمة" [ref=f23e46]
+          - generic [ref=f23e47]: حفظ هذه المعلومات للمرة القادمة
+      - complementary [ref=f23e49]:
+        - heading "ملخص الطلب" [level=2] [ref=f23e50]
+        - article [ref=f23e52]:
+          - generic [ref=f23e53]: "1"
+          - generic [ref=f23e55]:
+            - paragraph [ref=f23e56]: منتج طويل لاختبار الموبايل
+            - generic [ref=f23e57]: 65 LE
+        - generic [ref=f23e59]:
+          - generic [ref=f23e60]:
+            - generic [ref=f23e63]: كود الخصم
+            - textbox "كود الخصم" [ref=f23e64]:
+              - /placeholder: هل تمتلك كوبون خصم؟
+            - button "تفعيل" [ref=f23e65]
+          - paragraph [ref=f23e66]
+        - generic [ref=f23e67]:
+          - generic [ref=f23e68]:
+            - term [ref=f23e69]: مجموع المنتجات
+            - definition [ref=f23e70]: 65 LE
+          - generic [ref=f23e71]:
+            - term [ref=f23e72]: المجموع الفرعي
+            - definition [ref=f23e73]: 65 LE
+          - generic [ref=f23e74]:
+            - term [ref=f23e75]: الشحن
+            - definition [ref=f23e76]: 60 LE
+        - paragraph [ref=f23e77]: أضف منتجات بقيمة 435 LE للحصول على شحن مجاني.
+        - generic [ref=f23e79]:
+          - paragraph [ref=f23e80]: المجموع الكلي
+          - generic [ref=f23e81]: 125 LE
+        - button "المتابعة للدفع" [ref=f23e83]
+  - contentinfo [ref=f23e84]:
+    - generic [ref=f23e85]:
+      - link "ورقة وقلم" [ref=f23e86] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f23e87]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f23e88]:
+        - link "الرئيسية" [ref=f23e89] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f23e90] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f23e91] [cursor=pointer]:
+          - /url: /#faq
+        - link "من نحن" [ref=f23e92] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f23e93] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f23e94]:
+        - link "Facebook" [ref=f23e95] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f23e98] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f23e101] [cursor=pointer]:
+          - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=f23e109] [cursor=pointer]
+  - alert [ref=f23e113]

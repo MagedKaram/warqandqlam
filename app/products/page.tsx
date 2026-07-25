@@ -36,7 +36,11 @@ export default function ProductsPage() {
 
           <div className="mt-9 grid gap-x-4 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {productsPageProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                variant="catalog"
+              />
             ))}
           </div>
 
@@ -48,7 +52,7 @@ export default function ProductsPage() {
             <div className="flex h-11 items-center rounded-md border border-neutral-400 bg-white px-3">
               <button
                 aria-label="الصفحة السابقة"
-                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-muted transition hover:bg-cool-200 hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent"
+                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-muted transition hover:bg-cool-200 hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
                 type="button"
               >
                 <PiCaretLeft aria-hidden className="text-lg" />
@@ -65,7 +69,7 @@ export default function ProductsPage() {
                 ) : (
                   <button
                     aria-current={item === "1" ? "page" : undefined}
-                    className={`flex h-9 min-w-10 items-center justify-center rounded-md text-sm font-bold transition focus:outline-none focus:ring-2 focus:ring-auth-accent ${
+                    className={`flex h-9 min-w-10 items-center justify-center rounded-md text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent ${
                       item === "1"
                         ? "bg-cool-200 text-auth-ink"
                         : "text-auth-muted hover:bg-cool-200 hover:text-auth-ink"
@@ -80,7 +84,7 @@ export default function ProductsPage() {
 
               <button
                 aria-label="الصفحة التالية"
-                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-muted transition hover:bg-cool-200 hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent"
+                className="flex h-9 w-9 items-center justify-center rounded-md text-auth-muted transition hover:bg-cool-200 hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
                 type="button"
               >
                 <PiCaretRight aria-hidden className="text-lg" />

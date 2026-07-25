@@ -1,0 +1,153 @@
+- generic [active] [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f5e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f5e6]:
+      - navigation "التنقل الرئيسي" [ref=f5e7]:
+        - link "الرئيسية" [ref=f5e8] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f5e9] [cursor=pointer]:
+          - /url: /categories
+        - link "الطباعة" [ref=f5e10] [cursor=pointer]:
+          - /url: /printing
+        - link "المنتجات" [ref=f5e11] [cursor=pointer]:
+          - /url: /products
+        - link "تواصل معنا" [ref=f5e12] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f5e13]:
+        - button "بحث" [ref=f5e15]
+        - generic [ref=f5e18]:
+          - link "المفضلة" [ref=f5e19] [cursor=pointer]:
+            - /url: /wishlist
+          - link "السلة، 1 عنصر" [ref=f5e63] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=f5e64]: "1"
+          - link "الحساب" [ref=f5e25] [cursor=pointer]:
+            - /url: /login
+  - main [ref=f5e65]:
+    - generic [ref=f5e67]:
+      - generic [ref=f5e69]:
+        - heading "سلة التسوق" [level=1] [ref=f5e70]
+        - generic [ref=f5e71]: / لديك 1 منتج في السلة
+      - generic [ref=f5e72]:
+        - region "عناصر السلة" [ref=f5e73]:
+          - article [ref=f5e75]:
+            - link "عرض أدوات الهندسة الاحترافية الطويلة للطلاب والمبدعين" [ref=f5e76] [cursor=pointer]:
+              - /url: /products/products-page-pen-1
+              - img "طقم أدوات هندسية" [ref=f5e77]
+            - generic [ref=f5e78]:
+              - link [ref=f5e79] [cursor=pointer]:
+                - /url: /products/products-page-pen-1
+                - heading "أدوات الهندسة الاحترافية الطويلة للطلاب والمبدعين AMS PLUS" [level=2] [ref=f5e80]
+              - paragraph [ref=f5e81]: "اللون: أزرق"
+              - paragraph [ref=f5e82]:
+                - generic [ref=f5e85]: يصل خلال 2–5 أيام عمل
+              - generic [ref=f5e86]:
+                - generic [ref=f5e87]: 130 LE
+                - group "تعديل الكمية" [ref=f5e88]:
+                  - button "تقليل الكمية" [ref=f5e89]
+                  - generic [ref=f5e92]: "2"
+                  - button "زيادة الكمية" [ref=f5e93]
+            - generic [ref=f5e96]:
+              - button "إضافة إلى المفضلة" [ref=f5e97]
+              - button "إزالة أدوات الهندسة الاحترافية الطويلة للطلاب والمبدعين من السلة" [ref=f5e100]
+        - complementary [ref=f5e104]:
+          - heading "ملخص الطلب" [level=2] [ref=f5e105]
+          - generic [ref=f5e107]:
+            - generic [ref=f5e108]:
+              - generic [ref=f5e111]: كود الخصم
+              - textbox "كود الخصم" [ref=f5e112]:
+                - /placeholder: هل تمتلك كوبون خصم؟
+              - button "تفعيل" [ref=f5e113]
+            - paragraph [ref=f5e114]
+          - generic [ref=f5e115]:
+            - generic [ref=f5e116]:
+              - term [ref=f5e117]: مجموع المنتجات
+              - definition [ref=f5e118]: 130 LE
+            - generic [ref=f5e119]:
+              - term [ref=f5e120]: المجموع الفرعي
+              - definition [ref=f5e121]: 130 LE
+            - generic [ref=f5e122]:
+              - term [ref=f5e123]: الشحن
+              - definition [ref=f5e124]: 60 LE
+          - paragraph [ref=f5e125]: أضف منتجات بقيمة 370 LE للحصول على شحن مجاني.
+          - generic [ref=f5e127]:
+            - paragraph [ref=f5e128]: المجموع الكلي
+            - generic [ref=f5e129]: 190 LE
+          - generic [ref=f5e130]:
+            - link "إتمام الطلب" [ref=f5e131] [cursor=pointer]:
+              - /url: /checkout
+            - link "متابعة التسوق" [ref=f5e132] [cursor=pointer]:
+              - /url: /products
+      - region [ref=f5e133]:
+        - generic [ref=f5e134]:
+          - heading "منتجات ذات صلة" [level=2] [ref=f5e135]
+          - link "عرض جميع المنتجات" [ref=f5e136] [cursor=pointer]:
+            - /url: /products
+        - generic [ref=f5e139]:
+          - article [ref=f5e140]:
+            - generic [ref=f5e141]: خصم %20
+            - button "إضافة إلى المفضلة" [ref=f5e142]
+            - link "اقلام رصاص - من شركة bravo اقلام رصاص - من شركة bravo 170 LE 98" [ref=f5e145] [cursor=pointer]:
+              - /url: /products/related-bravo-pencils
+              - img "اقلام رصاص - من شركة bravo" [ref=f5e147]
+              - heading "اقلام رصاص - من شركة bravo" [level=3] [ref=f5e148]
+              - generic [ref=f5e149]: 170 LE
+              - generic [ref=f5e150]: "98"
+            - button "أضف للسلة" [ref=f5e162]
+          - article [ref=f5e165]:
+            - generic [ref=f5e166]: منتج جديد
+            - button "إضافة إلى المفضلة" [ref=f5e167]
+            - link "قلم رصاص ماركه دومز قلم رصاص ماركه دومز 17 LE 98" [ref=f5e170] [cursor=pointer]:
+              - /url: /products/related-doms-fusion-1
+              - img "قلم رصاص ماركه دومز" [ref=f5e172]
+              - heading "قلم رصاص ماركه دومز" [level=3] [ref=f5e173]
+              - generic [ref=f5e174]: 17 LE
+              - generic [ref=f5e175]: "98"
+            - button "أضف للسلة" [ref=f5e187]
+          - article [ref=f5e190]:
+            - generic [ref=f5e191]: منتج جديد
+            - button "إضافة إلى المفضلة" [ref=f5e192]
+            - link "قلم رصاص ماركه دومز قلم رصاص ماركه دومز 17 LE 98" [ref=f5e195] [cursor=pointer]:
+              - /url: /products/related-doms-fusion-2
+              - img "قلم رصاص ماركه دومز" [ref=f5e197]
+              - heading "قلم رصاص ماركه دومز" [level=3] [ref=f5e198]
+              - generic [ref=f5e199]: 17 LE
+              - generic [ref=f5e200]: "98"
+            - button "أضف للسلة" [ref=f5e212]
+          - article [ref=f5e215]:
+            - button "إضافة إلى المفضلة" [ref=f5e216]
+            - link "قلم رصاص ماركه دومز قلم رصاص ماركه دومز 17 LE 98" [ref=f5e219] [cursor=pointer]:
+              - /url: /products/related-faber-pencils
+              - img "قلم رصاص ماركه دومز" [ref=f5e221]
+              - heading "قلم رصاص ماركه دومز" [level=3] [ref=f5e222]
+              - generic [ref=f5e223]: 17 LE
+              - generic [ref=f5e224]: "98"
+            - button "أضف للسلة" [ref=f5e236]
+  - contentinfo [ref=f5e33]:
+    - generic [ref=f5e34]:
+      - link "ورقة وقلم" [ref=f5e35] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f5e36]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f5e37]:
+        - link "الرئيسية" [ref=f5e38] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f5e39] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f5e40] [cursor=pointer]:
+          - /url: /#faq
+        - link "من نحن" [ref=f5e41] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f5e42] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f5e43]:
+        - link "Facebook" [ref=f5e44] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f5e47] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f5e50] [cursor=pointer]:
+          - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=f5e58] [cursor=pointer]
+  - alert [ref=f5e62]

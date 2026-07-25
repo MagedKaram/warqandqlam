@@ -53,21 +53,21 @@ export function ProductsFilterControls({ filterGroups }: ProductsFilterControlsP
 
   return (
     <>
-      <div className="flex items-center gap-8" dir="ltr">
+      <div className="flex items-center gap-8">
         <button
           aria-expanded={open}
           aria-label="فتح الفلاتر"
-          className="flex h-12 w-12 items-center justify-center rounded-md border border-auth-border bg-white text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
+          className="order-2 flex h-12 w-12 items-center justify-center rounded-md border border-auth-border bg-white text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2"
           onClick={() => setOpen(true)}
           type="button"
         >
           <PiSlidersHorizontal aria-hidden className="text-2xl" />
         </button>
 
-        <label className="relative block" dir="rtl">
+        <label className="relative order-1 block">
           <span className="sr-only">ترتيب المنتجات</span>
           <select
-            className="h-12 min-w-44 appearance-none rounded-md border border-auth-border bg-white py-0 pl-10 pr-4 text-right text-base font-semibold text-auth-muted outline-none transition hover:border-auth-accent focus:border-auth-accent focus:ring-2 focus:ring-auth-accent/20"
+            className="h-12 min-w-44 appearance-none rounded-md border border-auth-border bg-white py-0 pe-10 ps-4 text-start text-base font-semibold text-auth-muted outline-none transition hover:border-auth-accent focus:border-auth-accent focus:ring-2 focus:ring-auth-accent/20"
             defaultValue="best-selling"
           >
             <option value="best-selling">فرز حسب: الأكثر مبيعاً</option>
@@ -77,7 +77,7 @@ export function ProductsFilterControls({ filterGroups }: ProductsFilterControlsP
           </select>
           <PiCaretDown
             aria-hidden
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-lg text-auth-muted"
+            className="pointer-events-none absolute end-3 top-1/2 -translate-y-1/2 text-lg text-auth-muted"
           />
         </label>
       </div>
@@ -96,7 +96,7 @@ export function ProductsFilterControls({ filterGroups }: ProductsFilterControlsP
               <h2 className="font-heading text-3xl font-bold text-auth-ink">الفلاتر</h2>
               <button
                 aria-label="إغلاق الفلاتر"
-                className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent"
+                className="flex h-10 w-10 items-center justify-center rounded-md text-auth-ink transition hover:bg-auth-cream hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
                 onClick={() => setOpen(false)}
                 type="button"
               >
@@ -123,7 +123,7 @@ export function ProductsFilterControls({ filterGroups }: ProductsFilterControlsP
                           <span>
                             {option.label}
                             {typeof option.count === "number" ? (
-                              <span className="mr-2 text-sm text-auth-muted/75">
+                              <span className="me-2 text-sm text-auth-muted/75">
                                 ({option.count})
                               </span>
                             ) : null}
@@ -153,14 +153,14 @@ export function ProductsFilterControls({ filterGroups }: ProductsFilterControlsP
 
             <div className="grid grid-cols-2 gap-3 border-t border-neutral-400 pt-5">
               <button
-                className="h-12 rounded-md border border-auth-border bg-white text-base font-bold text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus:outline-none focus:ring-2 focus:ring-auth-accent"
+                className="h-12 rounded-md border border-auth-border bg-white text-base font-bold text-auth-ink transition hover:border-auth-accent hover:text-auth-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
                 onClick={() => setSelectedOptions(new Set())}
                 type="button"
               >
                 مسح
               </button>
               <button
-                className="h-12 rounded-md bg-auth-accent text-base font-bold text-white transition hover:bg-auth-accent/90 focus:outline-none focus:ring-2 focus:ring-auth-accent focus:ring-offset-2"
+                className="h-12 rounded-md bg-auth-accent text-base font-bold text-white transition hover:bg-auth-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent focus-visible:ring-offset-2"
                 onClick={() => setOpen(false)}
                 type="button"
               >

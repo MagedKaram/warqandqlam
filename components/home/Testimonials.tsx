@@ -139,7 +139,7 @@ export function Testimonials() {
 
           <button
             aria-label="رأي العميل التالي"
-            className="absolute -left-2 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center text-auth-muted transition hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent md:flex"
+            className="absolute -left-2 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center text-auth-muted transition hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent md:flex"
             onClick={goNext}
             type="button"
           >
@@ -147,7 +147,7 @@ export function Testimonials() {
           </button>
           <button
             aria-label="رأي العميل السابق"
-            className="absolute -right-2 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center text-auth-muted transition hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent md:flex"
+            className="absolute -right-2 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center text-auth-muted transition hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent md:flex"
             onClick={goPrevious}
             type="button"
           >
@@ -157,7 +157,7 @@ export function Testimonials() {
           <div className="mt-8 flex justify-center gap-3 md:hidden">
             <button
               aria-label="رأي العميل التالي"
-              className="flex h-11 w-11 items-center justify-center text-auth-muted transition hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent"
+              className="flex h-11 w-11 items-center justify-center text-auth-muted transition hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
               onClick={goNext}
               type="button"
             >
@@ -165,7 +165,7 @@ export function Testimonials() {
             </button>
             <button
               aria-label="رأي العميل السابق"
-              className="flex h-11 w-11 items-center justify-center text-auth-muted transition hover:text-auth-ink focus:outline-none focus:ring-2 focus:ring-auth-accent"
+              className="flex h-11 w-11 items-center justify-center text-auth-muted transition hover:text-auth-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent"
               onClick={goPrevious}
               type="button"
             >

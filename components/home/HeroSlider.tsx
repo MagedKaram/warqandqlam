@@ -114,7 +114,7 @@ export function HeroSlider() {
 
       <button
         aria-label="الشريحة التالية"
-        className="absolute right-6 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-auth-ink opacity-0 shadow-lg transition hover:bg-white hover:text-auth-accent focus:flex focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-auth-accent group-hover:flex group-hover:opacity-100"
+        className="pointer-events-none absolute right-6 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-auth-ink opacity-0 shadow-lg transition hover:bg-white hover:text-auth-accent focus-visible:pointer-events-auto focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent group-hover:pointer-events-auto group-hover:opacity-100"
         onClick={goNext}
         type="button"
       >
@@ -122,7 +122,7 @@ export function HeroSlider() {
       </button>
       <button
         aria-label="الشريحة السابقة"
-        className="absolute left-6 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-auth-ink opacity-0 shadow-lg transition hover:bg-white hover:text-auth-accent focus:flex focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-auth-accent group-hover:flex group-hover:opacity-100"
+        className="pointer-events-none absolute left-6 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-auth-ink opacity-0 shadow-lg transition hover:bg-white hover:text-auth-accent focus-visible:pointer-events-auto focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent group-hover:pointer-events-auto group-hover:opacity-100"
         onClick={goPrevious}
         type="button"
       >

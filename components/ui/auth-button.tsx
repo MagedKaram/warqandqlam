@@ -22,7 +22,7 @@ export function AuthButton({
 
   return (
     <button
-      className={`flex ${height} w-full items-center justify-center gap-3 rounded-md border text-xl font-semibold transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-auth-link focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${classes} ${className}`}
+      className={`flex ${height} w-full items-center justify-center gap-3 rounded-md border text-xl font-semibold transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-link focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${classes} ${className}`}
       type={type}
       {...props}
     >

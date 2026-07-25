@@ -1,0 +1,107 @@
+- generic [active] [ref=f137e1]:
+  - banner [ref=f137e2]:
+    - generic [ref=f137e3]:
+      - text: احصل على خصم 25% على أول طلب لك
+      - link "اطلب الآن" [ref=f137e4] [cursor=pointer]:
+        - /url: /products
+    - generic [ref=f137e6]:
+      - button "فتح القائمة" [ref=f137e7]
+      - generic [ref=f137e10]:
+        - link "السلة" [ref=f137e12] [cursor=pointer]:
+          - /url: /cart
+        - button "بحث" [ref=f137e16]
+  - main [ref=f137e19]:
+    - generic [ref=f137e21]:
+      - heading "خطوات الطباعة" [level=1] [ref=f137e22]
+      - paragraph [ref=f137e23]: 3 خطوات بسيطة لطلب طباعتك
+    - generic [ref=f137e25]:
+      - generic [ref=f137e26]:
+        - generic [ref=f137e27]:
+          - heading "ارفع الملفات" [level=2] [ref=f137e28]
+          - button "Choose File" [ref=f137e29]
+          - button "منطقة رفع ملفات الطباعة" [ref=f137e30] [cursor=pointer]:
+            - paragraph [ref=f137e33]: اسحب وافلت الملفات هنا
+            - paragraph [ref=f137e34]: أو اضغط لاختيار الملفات من جهازك
+            - button "اختر الملفات" [ref=f137e35]
+            - paragraph [ref=f137e38]: "الصيغ المدعومة: PDF, DOC, DOCX, JPG, PNG (حجم أقصى: 50MB)"
+        - generic [ref=f137e39]:
+          - heading "مواصفات الطباعة" [level=2] [ref=f137e40]
+          - generic [ref=f137e41]:
+            - group "مقاس الورق" [ref=f137e42]:
+              - generic [ref=f137e44]:
+                - button "A4 ، محدد" [pressed] [ref=f137e45]:
+                  - text: A4
+                  - generic [ref=f137e46]: ، محدد
+                - button "A3" [ref=f137e47]
+                - button "A5" [ref=f137e49]
+            - generic [ref=f137e51]:
+              - generic [ref=f137e52]: عدد النسخ
+              - generic [ref=f137e53]:
+                - generic [ref=f137e54]:
+                  - button "زيادة عدد النسخ" [ref=f137e55]: ▲
+                  - button "تقليل عدد النسخ" [ref=f137e56]: ▼
+                - spinbutton "عدد النسخ" [ref=f137e57]: "1"
+            - group "نمط الطباعة" [ref=f137e58]:
+              - generic [ref=f137e60]:
+                - button "ملون2.5 / صفحة" [pressed] [ref=f137e61]:
+                  - generic [ref=f137e63]:
+                    - text: ملون
+                    - generic [ref=f137e64]: 2.5 / صفحة
+                - button "أبيض واسود0.5 / صفحة" [ref=f137e65]:
+                  - generic [ref=f137e67]:
+                    - text: أبيض واسود
+                    - generic [ref=f137e68]: 0.5 / صفحة
+            - generic [ref=f137e69]:
+              - generic [ref=f137e70]: التجليد
+              - combobox "التجليد" [ref=f137e71]:
+                - option "بدون تجليد" [selected]
+                - option "تدبيس"
+                - option "سلك"
+                - option "تجليد حراري"
+            - generic [ref=f137e72]:
+              - generic [ref=f137e73]: نوع الورق
+              - combobox "نوع الورق" [ref=f137e74]:
+                - option "عادي (80 جرام)" [selected]
+                - option "عادي (100 جرام)"
+                - option "كوشيه"
+                - option "ورق مقوى"
+      - complementary [ref=f137e76]:
+        - heading "ملخص الطلب" [level=2] [ref=f137e77]
+        - generic [ref=f137e78]:
+          - generic [ref=f137e79]:
+            - definition [ref=f137e80]: 0 LE
+            - term [ref=f137e81]: المجموع الفرعي
+          - generic [ref=f137e82]:
+            - definition [ref=f137e83]: 0 LE
+            - term [ref=f137e84]: التجليد
+        - generic [ref=f137e86]:
+          - paragraph [ref=f137e87]: 0 LE
+          - paragraph [ref=f137e88]: المجموع الكلي
+        - generic [ref=f137e90]:
+          - button "إضافة للسلة" [disabled] [ref=f137e91]
+          - link "متابعة التسوق" [ref=f137e92] [cursor=pointer]:
+            - /url: /products
+  - contentinfo [ref=f137e93]:
+    - generic [ref=f137e94]:
+      - link "ورقة وقلم" [ref=f137e95] [cursor=pointer]:
+        - /url: /
+      - paragraph [ref=f137e96]: مكتبة ورقة وقلم هي وجهتك الأولى لكل ما تحتاجه من أدوات مكتبية ومدرسية عالية الجودة. نحرص على تقديم منتجات متنوعة بأسعار مناسبة لتلبية احتياجات الطلاب والمبدعين في مكان واحد.
+      - navigation "روابط تذييل الصفحة" [ref=f137e97]:
+        - link "الرئيسية" [ref=f137e98] [cursor=pointer]:
+          - /url: /
+        - link "الأقسام" [ref=f137e99] [cursor=pointer]:
+          - /url: /categories
+        - link "الأسئلة الشائعة" [ref=f137e100] [cursor=pointer]:
+          - /url: /#faq
+        - link "من نحن" [ref=f137e101] [cursor=pointer]:
+          - /url: /about
+        - link "تواصل معنا" [ref=f137e102] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f137e103]:
+        - link "Facebook" [ref=f137e104] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=f137e107] [cursor=pointer]:
+          - /url: "#"
+        - link "Instagram" [ref=f137e110] [cursor=pointer]:
+          - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=f137e118] [cursor=pointer]

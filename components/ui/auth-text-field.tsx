@@ -21,25 +21,24 @@ export function AuthTextField({
 
   return (
     <div className="space-y-2">
-      <label className="block text-right text-xl font-semibold text-auth-ink" htmlFor={id}>
+      <label className="block text-start text-xl font-semibold text-auth-ink" htmlFor={id}>
         {label}
       </label>
       <div className="relative">
         <input
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${id}-error` : undefined}
-          className={`h-auth-field w-full rounded-md border border-auth-border bg-white px-5 text-xl text-auth-ink outline-none transition placeholder:text-auth-muted focus:border-auth-link focus:ring-2 focus:ring-auth-link/20 ${trailing ? "pl-14" : ""} ${className}`}
-          dir="rtl"
+          className={`h-auth-field w-full rounded-md border border-auth-border bg-white px-5 text-xl text-auth-ink outline-none transition placeholder:text-auth-muted focus:border-auth-link focus:ring-2 focus:ring-auth-link/20 ${trailing ? "ps-14" : ""} ${className}`}
           id={id}
           type={type}
           {...props}
         />
         {trailing ? (
-          <div className="absolute left-4 top-1/2 -translate-y-1/2">{trailing}</div>
+          <div className="absolute start-4 top-1/2 -translate-y-1/2">{trailing}</div>
         ) : null}
       </div>
       {error ? (
-        <p className="text-right text-sm font-medium text-auth-accent" id={`${id}-error`}>
+        <p className="text-start text-sm font-medium text-auth-accent" id={`${id}-error`}>
           {error}
         </p>
       ) : null}

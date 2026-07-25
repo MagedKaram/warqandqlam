@@ -1,0 +1,11 @@
+
+> warqandqlam@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.49:3000
+✓ Ready in 512ms
+
+ GET /products/products-page-pen-1 200 in 1044ms (next.js: 608ms, generate-params: 431ms, application-code: 437ms)
+ GET /checkout 200 in 72ms (next.js: 25ms, application-code: 47ms)

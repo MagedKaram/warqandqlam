@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CartProvider } from "@/components/cart/CartProvider";
 import { CartPageClient } from "@/components/cart/CartPageClient";
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function CartPage() {
-  return <CartPageClient />;
+  return (
+    <CartProvider>
+      <CartPageClient />
+    </CartProvider>
+  );
 }

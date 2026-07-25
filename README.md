@@ -1,33 +1,45 @@
-# Warqa w Qalam Frontend
+# Warq & Qalam
 
-Arabic-only RTL storefront prototype built with Next.js 16 App Router, React 19, TypeScript strict mode, and Tailwind CSS v4.
+Arabic-only storefront prototype built with Next.js 16 App Router, React 19, TypeScript strict mode, and Tailwind CSS v4.
 
-## Quick Start
+## Overview
 
-```powershell
-npm.cmd run dev
-```
+This repo contains the UI for browsing products, categories, cart, checkout, auth, FAQ, printing services, and order result flows. The current implementation is frontend-only and uses mock data from `lib/mock-data.ts` until the backend is ready.
 
-Open `http://localhost:3000`.
+## Tech Stack
 
-## Project Docs
+- Next.js 16
+- React 19
+- TypeScript with `strict` enabled
+- Tailwind CSS v4
+- Arabic RTL layout with configured font tokens
 
-- `AGENTS.md` - stack rules, Arabic/RTL requirements, frontend-only status, and Figma workflow.
-- `docs/RTL_ARCHITECTURE.md` - mandatory RTL, BiDi, responsive, and semantic DOM patterns.
-- `PROJECT_MAP.md` - routes, source layout, data sources, assets, and global shell map.
-- `COMPONENTS.md` - component inventory and reuse guidance.
-- `UPDATE_WORKFLOW.md` - required checklist for future feature updates and commits.
-- `BACKEND_INTEGRATION.md` - planned backend integration path and API contract notes.
-
-## Commands
+## Getting Started
 
 ```powershell
-npm.cmd run lint
-npm.cmd run build
+npm install
+npm run dev
 ```
 
-## Current Status
+Open `http://localhost:3000` after the dev server starts.
 
-The app is UI-only. Use mock data from `lib/mock-data.ts` until backend endpoints are finalized.
+## Available Scripts
 
-Keep `<html lang="ar" dir="rtl">`, use configured font tokens, and check existing components before creating new ones.
+```powershell
+npm run lint
+npm run build
+npm run start
+```
+
+## Project Structure
+
+- `app/` - routes and page-level composition.
+- `components/` - reusable UI blocks and feature sections.
+- `lib/` - mock data and shared helpers.
+- `types/` - shared TypeScript types.
+- `public/` - static assets.
+
+## Notes
+
+- Keep `<html lang="ar" dir="rtl">` in the root layout.
+- Local docs and screenshot references are intentionally excluded from version control.
